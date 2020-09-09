@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 suppressPackageStartupMessages(library(swcrt))
 ```
 
-# swcrt <img src='man/figures/logo.png' align="right" width="120"/>
+# swcrt <img src='reference/figures/logo.png' align="right" width="120"/>
 
 *Draw and export stepped-wedge cluster randomised trial designs*
 
@@ -60,7 +60,7 @@ png_of_design <- draw_sw(X, make = "png")
 ```
 The resultant .png looks as follows:
 
-<img src="man/figures/example.png" height="300"/>
+<img src="reference/figures/example.png" height="300"/>
 
 ## References
 

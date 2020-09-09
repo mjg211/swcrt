@@ -1,4 +1,4 @@
-#' Draw and export stepped-wedge cluster randomised trial design diagrams
+#' swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams
 #'
 #' \strong{swcrt} is an R package that helps produce diagrams of stepped-wedge
 #' cluster randomised trial (SW-CRT) designs, like those advocated for inclusion
