@@ -1,0 +1,69 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+```{r, echo = F}
+suppressPackageStartupMessages(library(swcrt))
+```
+
+# swcrt <img src='man/figures/logo.png' align="right" width="120"/>
+
+*Draw and export stepped-wedge cluster randomised trial designs*
+
+`r badger::badge_cran_release("swcrt", "green")`
+`r badger::badge_cran_download("swcrt", "grand-total")`
+`r badger::badge_cran_download("swcrt", "last-month")`
+`r badger::badge_devel("mjg211/swcrt", "blue")`
+`r badger::badge_code_size("mjg211/swcrt")`
+`r badger::badge_custom("contributions", "welcome", "blue")`
+
+## Description
+
+__swcrt__ is an R package that helps produce diagrams of stepped-wedge cluster randomised trial (SW-CRT) designs, like those advocated for inclusion when reporting SW-CRTs by [Hemming *et al.* (2018)](https://doi.org/10.1136/bmj.k1614).
+The produced diagrams can be exported in .docx, .png, and .pptx formats.
+
+## Getting started
+
+The latest development version of __swcrt__ available from [GitHub](https://github.com/) can be installed with:
+
+``` r
+devtools::install_github("mjg211/swcrt")
+```
+
+An introductory example of how to make use of the package's core functionality can be found below. 
+More detailed support is available in the package vignette, which can be accessed with `vignette("swcrt")`.
+For further help, please contact [Michael Grayling](https://www.newcastle-biostatistics.com/people/michael_grayling/) at michael.grayling@newcastle.ac.uk.
+
+## Example
+
+As a basic example, we consider reproducing the 4-cluster 5-time period design used in the trial reported by [Bashour *et al.* (2013)](https://doi.org/10.1136/bmjopen-2013-002674).
+First, create the design matrix using `design_sw()`:
+```{r}
+X <- design_sw(clusters_per_wave = c(0, 1, 1, 1, 1),
+               labels            = c("C", "I"))
+```
+Here, we've labelled the two conditions `"C"` and `"I"` to reflect their role as the control and intervention arms. The input `clusters_per_wave` is used to specify the design; a single cluster switches in time periods two through five.
+We can now plot this using `draw_sw()`, exporting in .png format:
+```{r}
+png_of_design <- draw_sw(X, make = "png")
+```
+The resultant .png looks as follows:
+
+<img src="inst/figures/example.png" height="300"/>
+
+## References
+
+Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA. The effect of training doctors in communication skills on women’s satisfaction with doctor–woman relationship during labour and delivery: A stepped wedge cluster randomised trial in Damascus. *BMJ Open* 2013;__3__, e002674. DOI: [10.1136/bmjopen-2013-002674](https://doi.org/10.1136/bmjopen-2013-002674). PMID: [23945729](https://pubmed.ncbi.nlm.nih.gov/23945729/).
+
+Hemming K, Taljaard M, McKenzie JE, Hooper R, Copas A, Thompson JA, Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein CE, Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer C, Forbes AB, Grimshaw JM. Reporting of stepped wedge cluster randomised trials: Extension of the CONSORT 2010 statement with explanation and elaboration. *BMJ* 2018;__363__,k1614. DOI: [10.1136/bmj.k1614](https://doi.org/10.1136/bmj.k1614). PMID: [30413417](https://pubmed.ncbi.nlm.nih.gov/30413417/).

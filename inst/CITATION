@@ -1,0 +1,9 @@
+citHeader("To cite swcrt in publications please use")
+
+citEntry(entry = "misc",
+         author = as.person("Michael J. Grayling"),
+         key    = "grayling2020",
+         title  = "{swcrt: Draw and export stepped-wedge cluster randomised trial designs}",
+         url    = "https://github.com/mjg211/swcrt",
+         year   = "2020",
+         textVersion = paste("Grayling MJ (2020) swcrt: Draw and export stepped-wedge cluster randomised trial designs. URL: https://github.com/mjg211/swcrt."))
