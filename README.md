@@ -70,6 +70,7 @@ satisfaction with doctor–woman relationship during labour and delivery:
 A stepped wedge cluster randomised trial in Damascus. *BMJ Open*
 2013;**3**, e002674. DOI:
 [10.1136/bmjopen-2013-002674](https://doi.org/10.1136/bmjopen-2013-002674).
+PMID: [23945729](https://pubmed.ncbi.nlm.nih.gov/23945729/).
 
 Hemming K, Taljaard M, McKenzie JE, Hooper R, Copas A, Thompson JA,
 Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein
@@ -77,4 +78,5 @@ CE, Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer
 C, Forbes AB, Grimshaw JM. Reporting of stepped wedge cluster randomised
 trials: Extension of the CONSORT 2010 statement with explanation and
 elaboration. *BMJ* 2018;**363**,k1614. DOI:
-[10.1136/bmj.k1614](https://doi.org/10.1136/bmj.k1614).
+[10.1136/bmj.k1614](https://doi.org/10.1136/bmj.k1614). PMID:
+[30413417](https://pubmed.ncbi.nlm.nih.gov/30413417/).
