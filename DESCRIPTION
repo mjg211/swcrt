@@ -20,7 +20,7 @@ LazyData: TRUE
 Suggests:
     rmarkdown,
 Date: 2020-09-09
-URL: https://swcrt.r-lib.org, https://github.com/mjg211/swcrt
+URL: https://mjg211.github.io/swcrt, https://github.com/mjg211/swcrt
 BugReports: https://github.com/mjg211/swcrt/issues
 RoxygenNote: 7.1.1
 Encoding: UTF-8
