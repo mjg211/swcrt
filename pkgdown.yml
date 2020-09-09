@@ -2,8 +2,8 @@ pandoc: 2.7.3
 pkgdown: 1.6.0
 pkgdown_sha: ~
 articles: []
-last_built: 2020-09-09T20:26Z
+last_built: 2020-09-09T20:28Z
 urls:
-  reference: https://swcrt.r-lib.org/reference
-  article: https://swcrt.r-lib.org/articles
+  reference: https://mjg211.github.io/swcrt/reference
+  article: https://mjg211.github.io/swcrt/articles
 
