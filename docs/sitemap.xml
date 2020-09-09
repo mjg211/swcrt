@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://swcrt.r-lib.org/index.html</loc>
+    <loc>https://mjg211.github.io/swcrt/index.html</loc>
   </url>
   <url>
-    <loc>https://swcrt.r-lib.org/reference/design_sw.html</loc>
+    <loc>https://mjg211.github.io/swcrt/reference/design_sw.html</loc>
   </url>
   <url>
-    <loc>https://swcrt.r-lib.org/reference/draw_sw.html</loc>
+    <loc>https://mjg211.github.io/swcrt/reference/draw_sw.html</loc>
   </url>
   <url>
-    <loc>https://swcrt.r-lib.org/reference/swcrt-package.html</loc>
+    <loc>https://mjg211.github.io/swcrt/reference/swcrt-package.html</loc>
   </url>
 </urlset>
