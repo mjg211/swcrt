@@ -44,15 +44,15 @@ design used in the trial reported by [Bashour *et al.*
 design matrix using `design_sw()`:
 
 ``` r
-X <- design_sw(clusters_per_wave = c(0, 1, 1, 1, 1),
-               labels            = c("C", "I"))
+X <- design_sw(clusters_per_time_period = c(0, 1, 1, 1, 1),
+               labels                   = c("C", "I"))
 ```
 
 Here, we’ve labelled the two conditions `"C"` and `"I"` to reflect their
-role as the control and intervention arms. The input `clusters_per_wave`
-is used to specify the design; a single cluster switches in time periods
-two through five. We can now plot this using `draw_sw()`, exporting in
-.png format:
+role as the control and intervention arms. The input
+`clusters_per_time_period` is used to specify the design; a single
+cluster switches in time periods two through five. We can now plot this
+using `draw_sw()`, exporting in .png format:
 
 ``` r
 png_of_design <- draw_sw(X, make = "png")
@@ -60,7 +60,7 @@ png_of_design <- draw_sw(X, make = "png")
 
 The resultant .png looks as follows:
 
-<img src="inst/figures/example.png" height="300"/>
+<img src="man/figures/example.png" height="300"/>
 
 ## References
 

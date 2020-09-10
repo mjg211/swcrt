@@ -55,7 +55,7 @@ X <- design_sw(clusters_per_time_period = c(0, 1, 1, 1, 1),
 ```
 Here, we've labelled the two conditions `"C"` and `"I"` to reflect their role as the control and intervention arms. The input `clusters_per_time_period` is used to specify the design; a single cluster switches in time periods two through five.
 We can now plot this using `draw_sw()`, exporting in .png format:
-```{r}
+```{r, eval = FALSE}
 png_of_design <- draw_sw(X, make = "png")
 ```
 The resultant .png looks as follows:
