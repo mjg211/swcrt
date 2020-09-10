@@ -1,7 +1,7 @@
 #' Draw and export stepped-wedge cluster randomised trial design diagrams
 #'
-#' \code{\link{draw_sw}} draws stepped-wedge cluster randomised trial design
-#' diagrams that can be exported in .docx, .png, and .pptx formats.
+#' \code{\link{draw_sw}} draws stepped-wedge cluster randomised trial (SW-CRT)
+#' design diagrams that can be exported in .docx, .png, and .pptx formats.
 #'
 #' More details on each of the input variables can be found in the package
 #' \code{\link{vignette}}.
@@ -47,7 +47,7 @@
 #' @param make A \code{\link{character}} \code{\link{vector}}, giving the
 #' (potentially multiple) types of output (export) that are desired. Can include
 #' \code{"print"} (view within R), "docx" (save a .docx MS Word file), "png"
-#' (save a .png file), and "docx" (save a .pptx MS PowerPoint file). Defaults to
+#' (save a .png file), and "pptx" (save a .pptx MS PowerPoint file). Defaults to
 #' \code{"print"}.
 #' @param filename A \code{\link{character}} string, giving the filename to use
 #' for any files that are to be saved. Defaults to \code{"swcrt"}.
@@ -316,7 +316,7 @@ draw_sw <- function(design         = design_sw(),
   # Create the key for the time periods
   if (!is.null(key_time_periods)) {
     time_periods          <-
-      data.frame(`Time period`    = col_names_plot_design[-(1:2)],
+      data.frame(`Time period`    = names(key_time_periods),
                  `Calendar time`  = key_time_periods,
                  stringsAsFactors = FALSE)
     table_time_periods    <- flextable::flextable(time_periods)
@@ -388,7 +388,7 @@ draw_sw <- function(design         = design_sw(),
   }
   # Print table if desired
   if ("print" %in% make) {
-    table
+    print(table)
   }
   # Output table and inputs
   list(table_design        = table,

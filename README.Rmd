@@ -8,8 +8,8 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  fig.align = "center",
+  out.width = "50%"
 )
 ```
 
@@ -37,7 +37,7 @@ The produced diagrams can be exported in .docx, .png, and .pptx formats.
 
 The latest development version of __swcrt__ available from [GitHub](https://github.com/) can be installed with:
 
-``` r
+```{r, eval = FALSE}
 devtools::install_github("mjg211/swcrt")
 ```
 
@@ -52,6 +52,7 @@ First, create the design matrix using `design_sw()`:
 ```{r}
 X <- design_sw(clusters_per_time_period = c(0, 1, 1, 1, 1),
                labels                   = c("C", "I"))
+X
 ```
 Here, we've labelled the two conditions `"C"` and `"I"` to reflect their role as the control and intervention arms. The input `clusters_per_time_period` is used to specify the design; a single cluster switches in time periods two through five.
 We can now plot this using `draw_sw()`, exporting in .png format:
@@ -59,11 +60,19 @@ We can now plot this using `draw_sw()`, exporting in .png format:
 png_of_design <- draw_sw(X, make = "png")
 ```
 The resultant .png looks as follows:
-
-<img src="man/figures/example.png" height="300"/>
+```{r, echo = FALSE}
+knitr::include_graphics("man/figures/example.png")
+```
 
 ## References
 
-Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA. The effect of training doctors in communication skills on women’s satisfaction with doctor–woman relationship during labour and delivery: A stepped wedge cluster randomised trial in Damascus. *BMJ Open* 2013;__3__, e002674. DOI: [10.1136/bmjopen-2013-002674](https://doi.org/10.1136/bmjopen-2013-002674). PMID: [23945729](https://pubmed.ncbi.nlm.nih.gov/23945729/).
+Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA. The effect of training doctors in communication skills on women’s satisfaction with doctor–woman relationship during labour and delivery: A stepped wedge cluster randomised trial in Damascus.
+*BMJ Open* 2013;__3__,e002674.
+DOI: [10.1136/bmjopen-2013-002674](https://doi.org/10.1136/bmjopen-2013-002674).
+PMID: [23945729](https://pubmed.ncbi.nlm.nih.gov/23945729/).
 
-Hemming K, Taljaard M, McKenzie JE, Hooper R, Copas A, Thompson JA, Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein CE, Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer C, Forbes AB, Grimshaw JM. Reporting of stepped wedge cluster randomised trials: Extension of the CONSORT 2010 statement with explanation and elaboration. *BMJ* 2018;__363__,k1614. DOI: [10.1136/bmj.k1614](https://doi.org/10.1136/bmj.k1614). PMID: [30413417](https://pubmed.ncbi.nlm.nih.gov/30413417/).
+Hemming K, Taljaard M, McKenzie JE, Hooper R, Copas A, Thompson JA, Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein CE, Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer C, Forbes AB, Grimshaw JM.
+Reporting of stepped wedge cluster randomised trials: Extension of the CONSORT 2010 statement with explanation and elaboration.
+*BMJ* 2018;__363__,k1614.
+DOI: [10.1136/bmj.k1614](https://doi.org/10.1136/bmj.k1614).
+PMID: [30413417](https://pubmed.ncbi.nlm.nih.gov/30413417/).

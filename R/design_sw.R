@@ -13,9 +13,9 @@
 #'             1:sum(clusters_per_time_period),
 #'           col_names                 =
 #'             1:length(clusters_per_time_period))
-#' @param clusters_per_time_period A \code{\link{numeric}} vector; element
-#' \code{clusters_per_time_period[i]} indicates the number of clusters that
-#' switch to the experimental intervention in time period \code{i}. The
+#' @param clusters_per_time_period A \code{\link{numeric}} \code{\link{vector}};
+#' element \code{clusters_per_time_period[i]} indicates the number of clusters
+#' that switch to the experimental intervention in time period \code{i}. The
 #' \code{\link{length}} of \code{clusters_per_time_period} thus indicates the
 #' number of time periods. Defaults to \code{c(0, 1, 1, 1, 1)}.
 #' @param labels A \code{\link{vector}} of \code{\link{length}} two, giving
@@ -26,8 +26,9 @@
 #' @param col_names A \code{\link{vector}}, giving \code{\link{colnames}} to add
 #' to the produced design. Must have \code{\link{length}} equal to
 #' \code{\link{length}(clusters_per_time_period)}.
-#' @return Returns the binary treatment indicator \code{\link{matrix}} for
-#' the implied SW-CRT design. This can be passed to \code{\link{draw_sw}}.
+#' @return Returns the binary treatment indicator matrix, in
+#' \code{\link{matrix}} form, for the implied SW-CRT design. This can be passed
+#' to \code{\link{draw_sw}}.
 #' @author Michael J Grayling (\email{michael.grayling@@newcastle.ac.uk})
 #' @seealso \code{\link{draw_sw}}
 #' @examples

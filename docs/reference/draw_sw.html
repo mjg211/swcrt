@@ -47,7 +47,8 @@
 
 
 <meta property="og:title" content="Draw and export stepped-wedge cluster randomised trial design diagrams — draw_sw" />
-<meta property="og:description" content="..." />
+<meta property="og:description" content="draw_sw draws stepped-wedge cluster randomised trial (SW-CRT)
+design diagrams that can be exported in .docx, .png, and .pptx formats." />
 <meta property="og:image" content="https://mjg211.github.io/swcrt/logo.png" />
 
 
@@ -95,6 +96,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/my-vignette.html">swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -125,7 +138,8 @@
     </div>
 
     <div class="ref-description">
-    <p>...</p>
+    <p><code>draw_sw</code> draws stepped-wedge cluster randomised trial (SW-CRT)
+design diagrams that can be exported in .docx, .png, and .pptx formats.</p>
     </div>
 
     <pre class="usage"><span class='fu'>draw_sw</span>(design         = <span class='fu'><a href='design_sw.html'>design_sw</a></span>(),
@@ -148,59 +162,90 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>design</th>
-      <td><p>...</p></td>
+      <td><p>A SW-CRT design (i.e., information on the planned roll-out) to
+draw a diagram for. Must be either a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> or a
+<code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code>. Defaults to <code><a href='design_sw.html'>design_sw</a>()</code>.</p></td>
     </tr>
     <tr>
       <th>cp_contents</th>
-      <td><p>...</p></td>
+      <td><p>Values to add to the cluster-period cells in the produced
+diagram; modify this when cluster-period cells should contain details
+on something other than the intervention condition. Must be either a
+<code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> or a <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code>. Defaults to
+<code>design</code>.</p></td>
     </tr>
     <tr>
       <th>row_names</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> variable, indicating whether the row
+names in the produced diagram should be taken from <code>design</code> or
+constructed internally. Defaults to <code><a href='https://rdrr.io/r/base/logical.html'>FALSE</a></code>.</p></td>
     </tr>
     <tr>
       <th>col_names</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> variable, indicating whether the
+column names in the produced diagram should be taken from <code>design</code> or
+constructed internally. Defaults to <code><a href='https://rdrr.io/r/base/logical.html'>FALSE</a></code>.</p></td>
     </tr>
     <tr>
       <th>colours</th>
-      <td><p>...</p></td>
+      <td><p>A named (see <code><a href='https://rdrr.io/r/base/names.html'>names</a></code>) <code><a href='https://rdrr.io/r/base/character.html'>character</a></code>
+<code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, giving the fill colours to add to the cluster-period
+cells for each of the intervention conditions. Specified internally by
+default.</p></td>
     </tr>
     <tr>
       <th>combine_rows</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> variable, indicating whether to
+combine rows that have identical sequences in the produced diagram. Defaults
+to <code><a href='https://rdrr.io/r/base/logical.html'>FALSE</a></code>.</p></td>
     </tr>
     <tr>
       <th>merge_cols</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> variable, indicating whether to
+merge across columns when adjacent cluster-period cells have the same
+intervention condition in the produced diagram. Defaults to
+<code><a href='https://rdrr.io/r/base/logical.html'>FALSE</a></code>.</p></td>
     </tr>
     <tr>
       <th>xlab</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string, giving the label for the x-axis
+in the produced diagram. Defaults to <code>"Time period"</code>.</p></td>
     </tr>
     <tr>
       <th>ylab</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string, giving the label for the y-axis
+in the produced diagram. Defaults to <code>"Cluster"</code>.</p></td>
     </tr>
     <tr>
       <th>cp_text_colour</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string, giving the colour to
+use for the text in the cluster-period cells in the produced diagram.
+Defaults to <code>"black"</code>.</p></td>
     </tr>
     <tr>
       <th>key_interventions</th>
-      <td><p>...</p></td>
+      <td><p>A named (see <code><a href='https://rdrr.io/r/base/names.html'>names</a></code>)
+<code><a href='https://rdrr.io/r/base/character.html'>character</a></code> <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, giving information to include
+an intervention key. Not produced by default.</p></td>
     </tr>
     <tr>
       <th>key_time_periods</th>
-      <td><p>...</p></td>
+      <td><p>A named (see <code><a href='https://rdrr.io/r/base/names.html'>names</a></code>)
+<code><a href='https://rdrr.io/r/base/character.html'>character</a></code> <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, giving information to include
+a time period key. Not produced by default.</p></td>
     </tr>
     <tr>
       <th>make</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, giving the
+(potentially multiple) types of output (export) that are desired. Can include
+<code>"print"</code> (view within R), "docx" (save a .docx MS Word file), "png"
+(save a .png file), and "pptx" (save a .pptx MS PowerPoint file). Defaults to
+<code>"print"</code>.</p></td>
     </tr>
     <tr>
       <th>filename</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string, giving the filename to use
+for any files that are to be saved. Defaults to <code>"swcrt"</code>.</p></td>
     </tr>
     </table>
 
@@ -221,6 +266,10 @@ specified.</p></li>
 input variables.</p></li>
 </ul>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>More details on each of the input variables can be found in the package
+<code><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='design_sw.html'>design_sw</a></code></p></div>
@@ -232,13 +281,23 @@ input variables.</p></li>
     <pre class="examples"><div class='input'><span class='co'># The default is to draw a 'standard' SW-CRT design, with four clusters and</span>
 <span class='co'># five time periods</span>
 <span class='kw'>default_draw</span>   <span class='op'>&lt;-</span> <span class='fu'>draw_sw</span>()
-<span class='co'># Specify a more complex design, where all clusters begin in the intervention</span>
-<span class='co'># condition, there is an unequal number of clusters per wave, and there are</span>
-<span class='co'># two trailing extra time periods with all clusters in the intervention</span>
-<span class='co'># condition. Also modify the row and column names</span>
-<span class='kw'>complex_design</span> <span class='op'>&lt;-</span> <span class='fu'><a href='design_sw.html'>design_sw</a></span>(clusters_per_wave = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
-                            row_names         = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Cluster "</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>8</span>),
-                            col_names         = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Time period "</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>))
+</div><div class='output co'>#&gt; a flextable object.
+#&gt; col_keys: `Cluster`, `i`, `1`, `2`, `3`, `4`, `5` 
+#&gt; header has 1 row(s) 
+#&gt; body has 4 row(s) 
+#&gt; original dataset sample: 
+#&gt;   Cluster i 1 2 3 4 5
+#&gt; 1 Cluster 1 0 1 1 1 1
+#&gt; 2 Cluster 2 0 0 1 1 1
+#&gt; 3 Cluster 3 0 0 0 1 1
+#&gt; 4 Cluster 4 0 0 0 0 1</div><div class='input'><span class='co'># Specify a more complex design, where all clusters begin in the intervention</span>
+<span class='co'># condition, there is an unequal number of clusters who switch per time</span>
+<span class='co'># period, and there are two trailing extra time periods with all clusters in</span>
+<span class='co'># the intervention condition. Also modify the row and column names</span>
+<span class='kw'>complex_design</span> <span class='op'>&lt;-</span> <span class='fu'><a href='design_sw.html'>design_sw</a></span>(clusters_per_time_period = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
+                            row_names                = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Cluster"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>8</span>),
+                            col_names                = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Time period"</span>,
+                                                             <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>))
 <span class='co'># Pass this to draw_sw(), producing .docx, .png, and .pptx files, merging</span>
 <span class='co'># columns, and combining rows</span>
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) {

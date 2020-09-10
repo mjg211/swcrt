@@ -50,8 +50,10 @@ indicator matrix — design_sw • swcrt</title>
 <meta property="og:title" content="Build a stepped-wedge cluster randomised trial design binary treatment
 indicator matrix — design_sw" />
 <meta property="og:description" content="design_sw builds a binary treatment indicator
-matrix for a specified stepped-wedge cluster randomised
-trial (SW-CRT) design, for subsequent use with draw_sw." />
+matrix for a specified conventional (i.e., two treatment
+conditions, say control and experimental interventions) stepped-wedge cluster
+randomised trial (SW-CRT) design, for subsequent use with
+draw_sw." />
 <meta property="og:image" content="https://mjg211.github.io/swcrt/logo.png" />
 
 
@@ -99,6 +101,18 @@ trial (SW-CRT) design, for subsequent use with draw_sw." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/my-vignette.html">swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -131,40 +145,54 @@ indicator matrix</h1>
 
     <div class="ref-description">
     <p><code>design_sw</code> builds a binary treatment indicator
-<code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> for a specified stepped-wedge cluster randomised
-trial (SW-CRT) design, for subsequent use with <code><a href='draw_sw.html'>draw_sw</a></code>.</p>
+<code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> for a specified conventional (i.e., two treatment
+conditions, say control and experimental interventions) stepped-wedge cluster
+randomised trial (SW-CRT) design, for subsequent use with
+<code><a href='draw_sw.html'>draw_sw</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>design_sw</span>(clusters_per_wave = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
-          labels            = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"0"</span>, <span class='st'>"1"</span>),
-          row_names         = <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='kw'>clusters_per_wave</span>),
-          col_names         = <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='kw'>clusters_per_wave</span>))</pre>
+    <pre class="usage"><span class='fu'>design_sw</span>(clusters_per_time_period = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
+          labels                   = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"0"</span>, <span class='st'>"1"</span>),
+          row_names                =
+            <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='kw'>clusters_per_time_period</span>),
+          col_names                 =
+            <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='kw'>clusters_per_time_period</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>clusters_per_wave</th>
-      <td><p>...</p></td>
+      <th>clusters_per_time_period</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>;
+element <code>clusters_per_time_period[i]</code> indicates the number of clusters
+that switch to the experimental intervention in time period <code>i</code>. The
+<code><a href='https://rdrr.io/r/base/length.html'>length</a></code> of <code>clusters_per_time_period</code> thus indicates the
+number of time periods. Defaults to <code><a href='https://rdrr.io/r/base/c.html'>c(0, 1, 1, 1, 1)</a></code>.</p></td>
     </tr>
     <tr>
       <th>labels</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code> of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> two, giving
+labels for the two intervention conditions. Defaults to <code><a href='https://rdrr.io/r/base/c.html'>c("0", "1")</a></code>.</p></td>
     </tr>
     <tr>
       <th>row_names</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, giving <code><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></code> to add
+to the produced design. Must have <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> equal to
+<code><a href='https://rdrr.io/r/base/sum.html'>sum</a>(clusters_per_time_period)</code>.</p></td>
     </tr>
     <tr>
       <th>col_names</th>
-      <td><p>...</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, giving <code><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></code> to add
+to the produced design. Must have <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> equal to
+<code><a href='https://rdrr.io/r/base/length.html'>length</a>(clusters_per_time_period)</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns the binary treatment indicator <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> for
-the implied SW-CRT design. This can be passed to <code><a href='draw_sw.html'>draw_sw</a></code>.</p>
+    <p>Returns the binary treatment indicator matrix, in
+<code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> form, for the implied SW-CRT design. This can be passed
+to <code><a href='draw_sw.html'>draw_sw</a></code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='draw_sw.html'>draw_sw</a></code></p></div>
@@ -177,13 +205,13 @@ the implied SW-CRT design. This can be passed to <code><a href='draw_sw.html'>dr
 <span class='co'># periods</span>
 <span class='kw'>default_design</span> <span class='op'>&lt;-</span> <span class='fu'>design_sw</span>()
 <span class='co'># Specify a more complex design, where all clusters begin in the intervention</span>
-<span class='co'># condition, there is an unequal number of clusters per wave, and there are</span>
-<span class='co'># two trailing extra time periods with all clusters in the intervention</span>
-<span class='co'># condition. Also modify the row and column names</span>
+<span class='co'># condition, there is an unequal number of clusters who switch per time</span>
+<span class='co'># period, and there are two trailing extra time periods with all clusters in</span>
+<span class='co'># the intervention condition. Also modify the row and column names</span>
 <span class='kw'>complex_design</span> <span class='op'>&lt;-</span> <span class='fu'>design_sw</span>(clusters_per_wave = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
                             row_names         = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Cluster "</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>8</span>),
                             col_names         = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Time period "</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>))
-</div></pre>
+</div><div class='output co'>#&gt; <span class='error'>Error in design_sw(clusters_per_wave = c(1, 2, 3, 2, 0, 0), row_names = paste0("Cluster ",     1:8), col_names = paste0("Time period ", 1:6)): unused argument (clusters_per_wave = c(1, 2, 3, 2, 0, 0))</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

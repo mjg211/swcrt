@@ -73,7 +73,7 @@ a time period key. Not produced by default.}
 \item{make}{A \code{\link{character}} \code{\link{vector}}, giving the
 (potentially multiple) types of output (export) that are desired. Can include
 \code{"print"} (view within R), "docx" (save a .docx MS Word file), "png"
-(save a .png file), and "docx" (save a .pptx MS PowerPoint file). Defaults to
+(save a .png file), and "pptx" (save a .pptx MS PowerPoint file). Defaults to
 \code{"print"}.}
 
 \item{filename}{A \code{\link{character}} string, giving the filename to use
@@ -97,8 +97,8 @@ input variables.
 }
 }
 \description{
-\code{\link{draw_sw}} draws stepped-wedge cluster randomised trial design
-diagrams that can be exported in .docx, .png, and .pptx formats.
+\code{\link{draw_sw}} draws stepped-wedge cluster randomised trial (SW-CRT)
+design diagrams that can be exported in .docx, .png, and .pptx formats.
 }
 \details{
 More details on each of the input variables can be found in the package

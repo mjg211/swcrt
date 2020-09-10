@@ -13,9 +13,9 @@ design_sw(clusters_per_time_period = c(0, 1, 1, 1, 1),
             1:length(clusters_per_time_period))
 }
 \arguments{
-\item{clusters_per_time_period}{A \code{\link{numeric}} vector; element
-\code{clusters_per_time_period[i]} indicates the number of clusters that
-switch to the experimental intervention in time period \code{i}. The
+\item{clusters_per_time_period}{A \code{\link{numeric}} \code{\link{vector}};
+element \code{clusters_per_time_period[i]} indicates the number of clusters
+that switch to the experimental intervention in time period \code{i}. The
 \code{\link{length}} of \code{clusters_per_time_period} thus indicates the
 number of time periods. Defaults to \code{c(0, 1, 1, 1, 1)}.}
 
@@ -31,8 +31,9 @@ to the produced design. Must have \code{\link{length}} equal to
 \code{\link{length}(clusters_per_time_period)}.}
 }
 \value{
-Returns the binary treatment indicator \code{\link{matrix}} for
-the implied SW-CRT design. This can be passed to \code{\link{draw_sw}}.
+Returns the binary treatment indicator matrix, in
+\code{\link{matrix}} form, for the implied SW-CRT design. This can be passed
+to \code{\link{draw_sw}}.
 }
 \description{
 \code{\link{design_sw}} builds a binary treatment indicator

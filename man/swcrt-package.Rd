@@ -30,7 +30,7 @@ accessed with \code{vignette("swcrt")}. For further help, please email
 \section{Details}{
 
 \tabular{ll}{\strong{Package:} \tab swcrt\cr \strong{Type:} \tab Package\cr
-\strong{Version:} \tab 0.1\cr \strong{Date:} \tab 2020-09-09\cr
+\strong{Version:} \tab 0.1\cr \strong{Date:} \tab 2020-09-10\cr
 \strong{License:} \tab MIT\cr}
 The package exports two functions:
 \itemize{
@@ -48,7 +48,7 @@ Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein CE,
 Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer C,
 Forbes AB, Grimshaw JM. Reporting of stepped wedge cluster randomised trials:
 Extension of the CONSORT 2010 statement with explanation and elaboration.
-\emph{BMJ} 2018;\strong{363}, k1614.
+\emph{BMJ} 2018;\strong{363},k1614.
 DOI: \href{https://doi.org/10.1136/bmj.k1614}{10.1136/bmj.k1614}.
 PMID: \href{https://pubmed.ncbi.nlm.nih.gov/30413417/}{30413417}.
 }

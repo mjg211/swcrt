@@ -49,11 +49,23 @@
 <li>
   <a href="index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
-
+     
   </a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/my-vignette.html">swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">Changelog</a>
@@ -63,7 +75,7 @@
 <li>
   <a href="https://github.com/mjg211/swcrt/">
     <span class="fab fa fab fa-github fa-lg"></span>
-
+     
   </a>
 </li>
       </ul>
@@ -74,7 +86,7 @@
 </div>
 <!--/.navbar -->
 
-
+      
 
       </header><div class="row">
   <div class="contents col-md-9">
@@ -103,20 +115,25 @@
 <a href="#example" class="anchor"></a>Example</h2>
 <p>As a basic example, we consider reproducing the 4-cluster 5-time period design used in the trial reported by <a href="https://doi.org/10.1136/bmjopen-2013-002674">Bashour <em>et al.</em> (2013)</a>. First, create the design matrix using <code><a href="reference/design_sw.html">design_sw()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/design_sw.html">design_sw</a></span>(clusters_per_wave = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>),
-               labels            = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"C"</span>, <span class="st">"I"</span>))
+<span class="kw">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/design_sw.html">design_sw</a></span>(clusters_per_time_period = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>),
+               labels                   = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"C"</span>, <span class="st">"I"</span>))
+<span class="kw">X</span>
+<span class="co">#&gt;   1   2   3   4   5  </span>
+<span class="co">#&gt; 1 "C" "I" "I" "I" "I"</span>
+<span class="co">#&gt; 2 "C" "C" "I" "I" "I"</span>
+<span class="co">#&gt; 3 "C" "C" "C" "I" "I"</span>
+<span class="co">#&gt; 4 "C" "C" "C" "C" "I"</span>
 </pre></div>
-<p>Here, we’ve labelled the two conditions <code>"C"</code> and <code>"I"</code> to reflect their role as the control and intervention arms. The input <code>clusters_per_wave</code> is used to specify the design; a single cluster switches in time periods two through five. We can now plot this using <code><a href="reference/draw_sw.html">draw_sw()</a></code>, exporting in .png format:</p>
+<p>Here, we’ve labelled the two conditions <code>"C"</code> and <code>"I"</code> to reflect their role as the control and intervention arms. The input <code>clusters_per_time_period</code> is used to specify the design; a single cluster switches in time periods two through five. We can now plot this using <code><a href="reference/draw_sw.html">draw_sw()</a></code>, exporting in .png format:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="kw">png_of_design</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/draw_sw.html">draw_sw</a></span>(<span class="kw">X</span>, make = <span class="st">"png"</span>)
 </pre></div>
-<p>The resultant .png looks as follows:</p>
-<p><img src="https://raw.githubusercontent.com/mjg211/swcrt/master/man/figures/example.png" height="300"></p>
+<p>The resultant .png looks as follows: <img src="reference/figures/example.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
-<p>Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA. The effect of training doctors in communication skills on women’s satisfaction with doctor–woman relationship during labour and delivery: A stepped wedge cluster randomised trial in Damascus. <em>BMJ Open</em> 2013;<strong>3</strong>, e002674. DOI: <a href="https://doi.org/10.1136/bmjopen-2013-002674">10.1136/bmjopen-2013-002674</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/23945729/">23945729</a>.</p>
+<p>Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA. The effect of training doctors in communication skills on women’s satisfaction with doctor–woman relationship during labour and delivery: A stepped wedge cluster randomised trial in Damascus. <em>BMJ Open</em> 2013;<strong>3</strong>,e002674. DOI: <a href="https://doi.org/10.1136/bmjopen-2013-002674">10.1136/bmjopen-2013-002674</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/23945729/">23945729</a>.</p>
 <p>Hemming K, Taljaard M, McKenzie JE, Hooper R, Copas A, Thompson JA, Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein CE, Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer C, Forbes AB, Grimshaw JM. Reporting of stepped wedge cluster randomised trials: Extension of the CONSORT 2010 statement with explanation and elaboration. <em>BMJ</em> 2018;<strong>363</strong>,k1614. DOI: <a href="https://doi.org/10.1136/bmj.k1614">10.1136/bmj.k1614</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30413417/">30413417</a>.</p>
 </div>
 </div>
@@ -167,7 +184,7 @@
       </footer>
 </div>
 
-
+  
 
 
   </body>

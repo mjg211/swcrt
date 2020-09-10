@@ -46,6 +46,12 @@ design matrix using `design_sw()`:
 ``` r
 X <- design_sw(clusters_per_time_period = c(0, 1, 1, 1, 1),
                labels                   = c("C", "I"))
+X
+#>   1   2   3   4   5  
+#> 1 "C" "I" "I" "I" "I"
+#> 2 "C" "C" "I" "I" "I"
+#> 3 "C" "C" "C" "I" "I"
+#> 4 "C" "C" "C" "C" "I"
 ```
 
 Here, we’ve labelled the two conditions `"C"` and `"I"` to reflect their
@@ -59,8 +65,7 @@ png_of_design <- draw_sw(X, make = "png")
 ```
 
 The resultant .png looks as follows:
-
-<img src="man/figures/example.png" height="300"/>
+<img src="man/figures/example.png" width="50%" style="display: block; margin: auto;" />
 
 ## References
 
@@ -68,7 +73,7 @@ Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA.
 The effect of training doctors in communication skills on women’s
 satisfaction with doctor–woman relationship during labour and delivery:
 A stepped wedge cluster randomised trial in Damascus. *BMJ Open*
-2013;**3**, e002674. DOI:
+2013;**3**,e002674. DOI:
 [10.1136/bmjopen-2013-002674](https://doi.org/10.1136/bmjopen-2013-002674).
 PMID: [23945729](https://pubmed.ncbi.nlm.nih.gov/23945729/).
 
