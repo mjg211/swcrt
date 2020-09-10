@@ -99,19 +99,10 @@ draw_sw." />
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/swcrt.html">Get started</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/my-vignette.html">swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams</a>
-    </li>
-  </ul>
+<li>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -208,10 +199,11 @@ to <code><a href='draw_sw.html'>draw_sw</a></code>.</p>
 <span class='co'># condition, there is an unequal number of clusters who switch per time</span>
 <span class='co'># period, and there are two trailing extra time periods with all clusters in</span>
 <span class='co'># the intervention condition. Also modify the row and column names</span>
-<span class='kw'>complex_design</span> <span class='op'>&lt;-</span> <span class='fu'>design_sw</span>(clusters_per_wave = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
-                            row_names         = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Cluster "</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>8</span>),
-                            col_names         = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Time period "</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>))
-</div><div class='output co'>#&gt; <span class='error'>Error in design_sw(clusters_per_wave = c(1, 2, 3, 2, 0, 0), row_names = paste0("Cluster ",     1:8), col_names = paste0("Time period ", 1:6)): unused argument (clusters_per_wave = c(1, 2, 3, 2, 0, 0))</span></div></pre>
+<span class='kw'>complex_design</span> <span class='op'>&lt;-</span> <span class='fu'>design_sw</span>(clusters_per_time_period = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
+                            row_names                = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Cluster"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>8</span>),
+                            col_names                = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Time period"</span>,
+                                                             <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>))
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

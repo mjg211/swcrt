@@ -39,9 +39,10 @@
 #' # condition, there is an unequal number of clusters who switch per time
 #' # period, and there are two trailing extra time periods with all clusters in
 #' # the intervention condition. Also modify the row and column names
-#' complex_design <- design_sw(clusters_per_wave = c(1, 2, 3, 2, 0, 0),
-#'                             row_names         = paste0("Cluster ", 1:8),
-#'                             col_names         = paste0("Time period ", 1:6))
+#' complex_design <- design_sw(clusters_per_time_period = c(1, 2, 3, 2, 0, 0),
+#'                             row_names                = paste("Cluster", 1:8),
+#'                             col_names                = paste("Time period",
+#'                                                              1:6))
 #' @export
 design_sw <- function(clusters_per_time_period = c(0, 1, 1, 1, 1),
                       labels                   = c("0", "1"),
