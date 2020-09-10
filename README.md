@@ -65,6 +65,7 @@ png_of_design <- draw_sw(X, make = "png")
 ```
 
 The resultant .png looks as follows:
+
 <img src="man/figures/example.png" width="50%" style="display: block; margin: auto;" />
 
 ## References

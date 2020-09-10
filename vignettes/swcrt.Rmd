@@ -51,7 +51,9 @@ We can now plot this using `draw_sw()`, exporting in .png format:
 ```{r, eval = FALSE}
 png_of_design <- draw_sw(X, make = "png")
 ```
+
 The resultant .png looks as follows:
+
 ```{r, echo = FALSE}
 knitr::include_graphics("example.png")
 ```
