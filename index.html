@@ -103,15 +103,15 @@
 <a href="#example" class="anchor"></a>Example</h2>
 <p>As a basic example, we consider reproducing the 4-cluster 5-time period design used in the trial reported by <a href="https://doi.org/10.1136/bmjopen-2013-002674">Bashour <em>et al.</em> (2013)</a>. First, create the design matrix using <code><a href="reference/design_sw.html">design_sw()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/design_sw.html">design_sw</a></span>(clusters_per_wave = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>),
-               labels            = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"C"</span>, <span class="st">"I"</span>))
+<span class="kw">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/design_sw.html">design_sw</a></span>(clusters_per_time_period = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>),
+               labels                   = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"C"</span>, <span class="st">"I"</span>))
 </pre></div>
-<p>Here, we’ve labelled the two conditions <code>"C"</code> and <code>"I"</code> to reflect their role as the control and intervention arms. The input <code>clusters_per_wave</code> is used to specify the design; a single cluster switches in time periods two through five. We can now plot this using <code><a href="reference/draw_sw.html">draw_sw()</a></code>, exporting in .png format:</p>
+<p>Here, we’ve labelled the two conditions <code>"C"</code> and <code>"I"</code> to reflect their role as the control and intervention arms. The input <code>clusters_per_time_period</code> is used to specify the design; a single cluster switches in time periods two through five. We can now plot this using <code><a href="reference/draw_sw.html">draw_sw()</a></code>, exporting in .png format:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="kw">png_of_design</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/draw_sw.html">draw_sw</a></span>(<span class="kw">X</span>, make = <span class="st">"png"</span>)
 </pre></div>
 <p>The resultant .png looks as follows:</p>
-<p><img src="inst/figures/example.png" height="300"></p>
+<p><img src="reference/figures/example.png" height="300"></p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
