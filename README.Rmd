@@ -50,10 +50,10 @@ For further help, please contact [Michael Grayling](https://www.newcastle-biosta
 As a basic example, we consider reproducing the 4-cluster 5-time period design used in the trial reported by [Bashour *et al.* (2013)](https://doi.org/10.1136/bmjopen-2013-002674).
 First, create the design matrix using `design_sw()`:
 ```{r}
-X <- design_sw(clusters_per_wave = c(0, 1, 1, 1, 1),
-               labels            = c("C", "I"))
+X <- design_sw(clusters_per_time_period = c(0, 1, 1, 1, 1),
+               labels                   = c("C", "I"))
 ```
-Here, we've labelled the two conditions `"C"` and `"I"` to reflect their role as the control and intervention arms. The input `clusters_per_wave` is used to specify the design; a single cluster switches in time periods two through five.
+Here, we've labelled the two conditions `"C"` and `"I"` to reflect their role as the control and intervention arms. The input `clusters_per_time_period` is used to specify the design; a single cluster switches in time periods two through five.
 We can now plot this using `draw_sw()`, exporting in .png format:
 ```{r}
 png_of_design <- draw_sw(X, make = "png")

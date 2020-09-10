@@ -4,7 +4,7 @@
 \name{swcrt-package}
 \alias{swcrt-package}
 \alias{swcrt}
-\title{Draw and export stepped-wedge cluster randomised trial design diagrams}
+\title{swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams}
 \description{
 \strong{swcrt} is an R package that helps produce diagrams of stepped-wedge
 cluster randomised trial (SW-CRT) designs, like those advocated for inclusion

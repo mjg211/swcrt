@@ -1,21 +1,56 @@
 #' Draw and export stepped-wedge cluster randomised trial design diagrams
 #'
-#' ...
+#' \code{\link{draw_sw}} draws stepped-wedge cluster randomised trial design
+#' diagrams that can be exported in .docx, .png, and .pptx formats.
 #'
-#' @param design ...
-#' @param cp_contents ...
-#' @param row_names ...
-#' @param col_names ...
-#' @param colours ...
-#' @param combine_rows ...
-#' @param merge_cols ...
-#' @param xlab ...
-#' @param ylab ...
-#' @param cp_text_colour ...
-#' @param key_interventions ...
-#' @param key_time_periods ...
-#' @param make ...
-#' @param filename ...
+#' More details on each of the input variables can be found in the package
+#' \code{\link{vignette}}.
+#'
+#' @param design A SW-CRT design (i.e., information on the planned roll-out) to
+#' draw a diagram for. Must be either a \code{\link{data.frame}} or a
+#' \code{\link{matrix}}. Defaults to \code{\link{design_sw}()}.
+#' @param cp_contents Values to add to the cluster-period cells in the produced
+#' diagram; modify this when cluster-period cells should contain details
+#' on something other than the intervention condition. Must be either a
+#' \code{\link{data.frame}} or a \code{\link{matrix}}. Defaults to
+#' \code{design}.
+#' @param row_names A \code{\link{logical}} variable, indicating whether the row
+#' names in the produced diagram should be taken from \code{design} or
+#' constructed internally. Defaults to \code{\link{FALSE}}.
+#' @param col_names A \code{\link{logical}} variable, indicating whether the
+#' column names in the produced diagram should be taken from \code{design} or
+#' constructed internally. Defaults to \code{\link{FALSE}}.
+#' @param colours A named (see \code{\link{names}}) \code{\link{character}}
+#' \code{\link{vector}}, giving the fill colours to add to the cluster-period
+#' cells for each of the intervention conditions. Specified internally by
+#' default.
+#' @param combine_rows A \code{\link{logical}} variable, indicating whether to
+#' combine rows that have identical sequences in the produced diagram. Defaults
+#' to \code{\link{FALSE}}.
+#' @param merge_cols A \code{\link{logical}} variable, indicating whether to
+#' merge across columns when adjacent cluster-period cells have the same
+#' intervention condition in the produced diagram. Defaults to
+#' \code{\link{FALSE}}.
+#' @param xlab A \code{\link{character}} string, giving the label for the x-axis
+#' in the produced diagram. Defaults to \code{"Time period"}.
+#' @param ylab A \code{\link{character}} string, giving the label for the y-axis
+#' in the produced diagram. Defaults to \code{"Cluster"}.
+#' @param cp_text_colour A \code{\link{character}} string, giving the colour to
+#' use for the text in the cluster-period cells in the produced diagram.
+#' Defaults to \code{"black"}.
+#' @param key_interventions A named (see \code{\link{names}})
+#' \code{\link{character}} \code{\link{vector}}, giving information to include
+#' an intervention key. Not produced by default.
+#' @param key_time_periods A named (see \code{\link{names}})
+#' \code{\link{character}} \code{\link{vector}}, giving information to include
+#' a time period key. Not produced by default.
+#' @param make A \code{\link{character}} \code{\link{vector}}, giving the
+#' (potentially multiple) types of output (export) that are desired. Can include
+#' \code{"print"} (view within R), "docx" (save a .docx MS Word file), "png"
+#' (save a .png file), and "docx" (save a .pptx MS PowerPoint file). Defaults to
+#' \code{"print"}.
+#' @param filename A \code{\link{character}} string, giving the filename to use
+#' for any files that are to be saved. Defaults to \code{"swcrt"}.
 #' @usage draw_sw(design         = design_sw(),
 #'         cp_contents    = design,
 #'         row_names      = FALSE,
@@ -52,12 +87,13 @@
 #' # five time periods
 #' default_draw   <- draw_sw()
 #' # Specify a more complex design, where all clusters begin in the intervention
-#' # condition, there is an unequal number of clusters per wave, and there are
-#' # two trailing extra time periods with all clusters in the intervention
-#' # condition. Also modify the row and column names
-#' complex_design <- design_sw(clusters_per_wave = c(1, 2, 3, 2, 0, 0),
-#'                             row_names         = paste0("Cluster ", 1:8),
-#'                             col_names         = paste0("Time period ", 1:6))
+#' # condition, there is an unequal number of clusters who switch per time
+#' # period, and there are two trailing extra time periods with all clusters in
+#' # the intervention condition. Also modify the row and column names
+#' complex_design <- design_sw(clusters_per_time_period = c(1, 2, 3, 2, 0, 0),
+#'                             row_names                = paste("Cluster", 1:8),
+#'                             col_names                = paste("Time period",
+#'                                                              1:6))
 #' # Pass this to draw_sw(), producing .docx, .png, and .pptx files, merging
 #' # columns, and combining rows
 #' \dontrun{
@@ -162,11 +198,11 @@ draw_sw <- function(design         = design_sw(),
       j1                               <- 3L
       while (j1 < ncol_plot_design + 2L) {
         j2                             <- j1 + 1L
-        check                          <- F
+        check                          <- FALSE
         while (all(plot_design[i, j1] == plot_design[i, j2],
                    j2 <= ncol_plot_design + 2L)) {
           j2                           <- j2 + 1L
-          check                        <- T
+          check                        <- TRUE
         }
         if (check) {
           table                        <- flextable::merge_h_range(table, i,
@@ -226,7 +262,7 @@ draw_sw <- function(design         = design_sw(),
     flextable::add_footer_row(table,
                               values    = c("", "", xlab),
                               colwidths = c(1L, 1L, ncol_plot_design),
-                              top       = F)
+                              top       = FALSE)
   # Centre the footer
   table                                <-
     flextable::align(table, align = "center", part = "footer")
@@ -257,7 +293,7 @@ draw_sw <- function(design         = design_sw(),
     interventions         <-
       data.frame(Label            = names(key_interventions),
                  Description      = key_interventions,
-                 stringsAsFactors = F)
+                 stringsAsFactors = FALSE)
     table_interventions   <- flextable::flextable(interventions)
     # Add background colour to each of the rows
     for (k in 1:length(colours)) {
@@ -282,7 +318,7 @@ draw_sw <- function(design         = design_sw(),
     time_periods          <-
       data.frame(`Time period`    = col_names_plot_design[-(1:2)],
                  `Calendar time`  = key_time_periods,
-                 stringsAsFactors = F)
+                 stringsAsFactors = FALSE)
     table_time_periods    <- flextable::flextable(time_periods)
     # All a black border all around
     table_time_periods    <- flextable::border(table_time_periods,

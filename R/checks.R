@@ -1,4 +1,4 @@
-check_belong            <- function(value, name, allowed) {
+check_belong                   <- function(value, name, allowed) {
   if (!is.vector(value)) {
     stop(name, " must be a vector")
   }
@@ -10,21 +10,21 @@ check_belong            <- function(value, name, allowed) {
   }
 }
 
-check_character         <- function(input, name) {
+check_character                <- function(input, name) {
   if (any(!is.character(input), length(input) > 1)) {
     stop(name, " must be a character string")
   }
 }
 
-check_clusters_per_wave <- function(clusters_per_wave) {
-  if (any(clusters_per_wave < 0, clusters_per_wave%%1 != 0,
-          sum(clusters_per_wave) <= 0)) {
-    stop("clusters_per_wave must be a vector of integers that are greater than",
-         " or equal to zero, with a strictly positive overall sum")
+check_clusters_per_time_period <- function(clusters_per_time_period) {
+  if (any(clusters_per_time_period < 0, clusters_per_time_period%%1 != 0,
+          sum(clusters_per_time_period) <= 0)) {
+    stop("clusters_per_time_period must be a vector of integers that are ",
+         "greater than or equal to zero, with a strictly positive overall sum")
   }
 }
 
-check_colours           <- function(colours, design) {
+check_colours                  <- function(colours, design) {
   unique_labels    <- unique(as.vector(as.matrix(design)))
   if (missing(colours)) {
     colours        <- viridis::viridis(length(unique_labels))
@@ -40,7 +40,7 @@ check_colours           <- function(colours, design) {
   colours
 }
 
-check_cp_contents       <- function(cp_contents, design) {
+check_cp_contents              <- function(cp_contents, design) {
   if (all(!is.matrix(design), !is.data.frame(design),
           nrow(design) != nrow(cp_contents),
           ncol(design) != ncol(cp_contents))) {
@@ -53,7 +53,7 @@ check_cp_contents       <- function(cp_contents, design) {
   cp_contents
 }
 
-check_design            <- function(design) {
+check_design                   <- function(design) {
   if (all(!is.matrix(design), !is.data.frame(design))) {
     stop("design must be either a matrix or a data.frame")
   }
@@ -63,8 +63,8 @@ check_design            <- function(design) {
   design
 }
 
-check_keys              <- function(key_interventions, key_time_periods,
-                                    design) {
+check_keys                     <- function(key_interventions, key_time_periods,
+                                           design) {
   unique_labels <- unique(as.vector(as.matrix(design)))
   if (!missing(key_interventions)) {
     if (any(!is.vector(key_interventions),
@@ -82,25 +82,28 @@ check_keys              <- function(key_interventions, key_time_periods,
   }
 }
 
-check_labels            <- function(labels) {
+check_labels                   <- function(labels) {
   if (any(!is.vector(labels), length(labels) != 2)) {
     stop("labels must be a vector of length two")
   }
 }
 
-check_logical           <- function(input, name) {
+check_logical                  <- function(input, name) {
   if (any(!is.logical(input), length(input) > 1)) {
     stop(name, " must be a logical variable")
   }
 }
 
-check_names             <- function(row_names, col_names, clusters_per_wave) {
-  if (any(!is.vector(row_names), length(row_names) != sum(clusters_per_wave))) {
-    stop("row_names must be a vector of length equal to sum(clusters_per_wave)")
+check_names                    <- function(row_names, col_names,
+                                           clusters_per_time_period) {
+  if (any(!is.vector(row_names),
+          length(row_names) != sum(clusters_per_time_period))) {
+    stop("row_names must be a vector of length equal to ",
+         "sum(clusters_per_time_period)")
   }
   if (any(!is.vector(col_names),
-          length(col_names) != length(clusters_per_wave))) {
+          length(col_names) != length(clusters_per_time_period))) {
     stop("col_names must be a vector of length equal to ",
-         "length(clusters_per_wave)")
+         "length(clusters_per_time_period)")
   }
 }

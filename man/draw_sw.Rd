@@ -20,33 +20,64 @@ draw_sw(design         = design_sw(),
         filename       = "swcrt")
 }
 \arguments{
-\item{design}{...}
+\item{design}{A SW-CRT design (i.e., information on the planned roll-out) to
+draw a diagram for. Must be either a \code{\link{data.frame}} or a
+\code{\link{matrix}}. Defaults to \code{\link{design_sw}()}.}
 
-\item{cp_contents}{...}
+\item{cp_contents}{Values to add to the cluster-period cells in the produced
+diagram; modify this when cluster-period cells should contain details
+on something other than the intervention condition. Must be either a
+\code{\link{data.frame}} or a \code{\link{matrix}}. Defaults to
+\code{design}.}
 
-\item{row_names}{...}
+\item{row_names}{A \code{\link{logical}} variable, indicating whether the row
+names in the produced diagram should be taken from \code{design} or
+constructed internally. Defaults to \code{\link{FALSE}}.}
 
-\item{col_names}{...}
+\item{col_names}{A \code{\link{logical}} variable, indicating whether the
+column names in the produced diagram should be taken from \code{design} or
+constructed internally. Defaults to \code{\link{FALSE}}.}
 
-\item{colours}{...}
+\item{colours}{A named (see \code{\link{names}}) \code{\link{character}}
+\code{\link{vector}}, giving the fill colours to add to the cluster-period
+cells for each of the intervention conditions. Specified internally by
+default.}
 
-\item{combine_rows}{...}
+\item{combine_rows}{A \code{\link{logical}} variable, indicating whether to
+combine rows that have identical sequences in the produced diagram. Defaults
+to \code{\link{FALSE}}.}
 
-\item{merge_cols}{...}
+\item{merge_cols}{A \code{\link{logical}} variable, indicating whether to
+merge across columns when adjacent cluster-period cells have the same
+intervention condition in the produced diagram. Defaults to
+\code{\link{FALSE}}.}
 
-\item{xlab}{...}
+\item{xlab}{A \code{\link{character}} string, giving the label for the x-axis
+in the produced diagram. Defaults to \code{"Time period"}.}
 
-\item{ylab}{...}
+\item{ylab}{A \code{\link{character}} string, giving the label for the y-axis
+in the produced diagram. Defaults to \code{"Cluster"}.}
 
-\item{cp_text_colour}{...}
+\item{cp_text_colour}{A \code{\link{character}} string, giving the colour to
+use for the text in the cluster-period cells in the produced diagram.
+Defaults to \code{"black"}.}
 
-\item{key_interventions}{...}
+\item{key_interventions}{A named (see \code{\link{names}})
+\code{\link{character}} \code{\link{vector}}, giving information to include
+an intervention key. Not produced by default.}
 
-\item{key_time_periods}{...}
+\item{key_time_periods}{A named (see \code{\link{names}})
+\code{\link{character}} \code{\link{vector}}, giving information to include
+a time period key. Not produced by default.}
 
-\item{make}{...}
+\item{make}{A \code{\link{character}} \code{\link{vector}}, giving the
+(potentially multiple) types of output (export) that are desired. Can include
+\code{"print"} (view within R), "docx" (save a .docx MS Word file), "png"
+(save a .png file), and "docx" (save a .pptx MS PowerPoint file). Defaults to
+\code{"print"}.}
 
-\item{filename}{...}
+\item{filename}{A \code{\link{character}} string, giving the filename to use
+for any files that are to be saved. Defaults to \code{"swcrt"}.}
 }
 \value{
 A \code{\link{list}} containing the following elements:
@@ -66,19 +97,25 @@ input variables.
 }
 }
 \description{
-...
+\code{\link{draw_sw}} draws stepped-wedge cluster randomised trial design
+diagrams that can be exported in .docx, .png, and .pptx formats.
+}
+\details{
+More details on each of the input variables can be found in the package
+\code{\link{vignette}}.
 }
 \examples{
 # The default is to draw a 'standard' SW-CRT design, with four clusters and
 # five time periods
 default_draw   <- draw_sw()
 # Specify a more complex design, where all clusters begin in the intervention
-# condition, there is an unequal number of clusters per wave, and there are
-# two trailing extra time periods with all clusters in the intervention
-# condition. Also modify the row and column names
-complex_design <- design_sw(clusters_per_wave = c(1, 2, 3, 2, 0, 0),
-                            row_names         = paste0("Cluster ", 1:8),
-                            col_names         = paste0("Time period ", 1:6))
+# condition, there is an unequal number of clusters who switch per time
+# period, and there are two trailing extra time periods with all clusters in
+# the intervention condition. Also modify the row and column names
+complex_design <- design_sw(clusters_per_time_period = c(1, 2, 3, 2, 0, 0),
+                            row_names                = paste("Cluster", 1:8),
+                            col_names                = paste("Time period",
+                                                             1:6))
 # Pass this to draw_sw(), producing .docx, .png, and .pptx files, merging
 # columns, and combining rows
 \dontrun{
