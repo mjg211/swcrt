@@ -1,0 +1,9 @@
+---
+title: "design_r0"
+output: md_document
+---
+
+# Autoregressive parameters
+
+__swcrt__ identifies optimal designs for a specific autoregressive correlation structure.
+Specify the value for one of these, $r_0$, here.

@@ -1,0 +1,9 @@
+---
+title: "design_rho0"
+output: md_document
+---
+
+# Within-period intra-cluster correlation
+
+__swcrt__ identifies optimal designs for a specific within-period intra-cluster correlation.
+Specify your chosen within-period intra-cluster correlation here.

@@ -1,0 +1,9 @@
+---
+title: "design_C"
+output: md_document
+---
+
+# Number of clusters
+
+__swcrt__ identifies optimal designs for a specific number of clusters.
+Specify your chosen number of clusters here.

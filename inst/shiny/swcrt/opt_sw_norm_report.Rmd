@@ -1,0 +1,89 @@
+---
+title: "Optimal stepped-wedge cluster randomised trial design"
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
+params:
+  C:                       NA
+  Ti:                      NA
+  m:                       NA
+  rho0:                    NA
+  r0:                      NA
+  r:                       NA
+  extreme_seq:             NA
+  time_effect:             NA
+  optimal_num_exact:       NA
+  optimal_num_rounded:     NA
+  optimal_weights_exact:   NA
+  optimal_weights_rounded: NA
+  exact_equal:             NA
+  exact_weighted:          NA
+  rounded:                 NA
+---
+
+```{r, include = F}
+knitr::opts_chunk$set(echo = FALSE, results = "asis")
+```
+
+```{r params, echo = FALSE, results = "asis"}
+C                       <- params$C
+Ti                      <- params$Ti
+m                       <- params$m
+rho0                    <- params$rho0
+r0                      <- params$r0
+r                       <- params$r
+extreme_seq             <- params$extreme_seq
+time_effect             <- params$time_effect
+optimal_num_exact       <- params$optimal_num_exact
+optimal_num_rounded     <- params$optimal_num_rounded
+optimal_weights_exact   <- params$optimal_weights_exact
+optimal_weights_rounded <- params$optimal_weights_rounded
+```
+
+```{r input_text, echo = FALSE, results = "asis"}
+if (extreme_seq) {
+  extreme_seq_text <- "will"
+} else {
+  extreme_seq_text <- "will not"
+}
+if (time_effect == "discrete") {
+  time_effect_text <- "discrete fixed effects"
+} else if (time_effect == "linear") {
+  time_effect_text <- "a linear function"
+} else if (time_effect == "quadratic") {
+  time_effect_text <- "a quadratic function"
+} else if (time_effect == "linear") {
+  time_effect_text <- "a cubic function"
+} else if (time_effect == "linear") {
+  time_effect_text <- "a quadratic function"
+} else if (time_effect == "linear") {
+  time_effect_text <- "a quintic function"
+}
+```
+
+# Inputs
+
+The following choices were made:
+
+- The number of clusters will be $C = \boldsymbol{`r C`}$.
+- The number of time periods will be $T = \boldsymbol{`r Ti`}$.
+- The number of measurements per cluster-period will be $m = \boldsymbol{`r m`}$.
+- The within-period intra-cluster correlation will be $\rho_0 = \boldsymbol{`r r0`}$.
+- The autoregressive structure parameters will be $r_0 = \boldsymbol{`r r0`}$ and $r = \boldsymbol{`r r`}$.
+- Time effects will be modelled using __`r time_effect_text`__.
+- Sequences of all control/all intervention allocation __`r extreme_seq_text`__ be allowed.
+
+# Outputs
+
+- The exact optimal weights to assign to each sequence are $\boldsymbol{(`r paste(round(optimal_weights_exact, 3), collapse = ", ")`)}$.
+- The exact optimal number of clusters to assign to each sequence are $\boldsymbol{(`r paste(round(optimal_num_exact, 3), collapse = ", ")`)}$.
+- The rounded optimal weights to assign to each sequence are $\boldsymbol{(`r paste(round(optimal_weights_rounded, 3), collapse = ", ")`)}$.
+- The rounded optimal number of clusters to assign to each sequence are $\boldsymbol{(`r paste(round(optimal_num_rounded, 3), collapse = ", ")`)}$.
+
+# Plots
+
+```{r, echo = FALSE, results = "asis", dpi = 600}
+print(params$exact_equal)
+cat("\n \n \n \n \n \n")
+print(params$exact_weighted)
+cat("\n \n \n \n \n \n")
+print(params$rounded)
+```

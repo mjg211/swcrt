@@ -1,0 +1,9 @@
+---
+title: "design_time_effect"
+output: md_document
+---
+
+# Time effects
+
+__swcrt__ identifies optimal designs assuming time is modelled in a specific way.
+Specify how time is to be modelled here.

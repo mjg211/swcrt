@@ -1,0 +1,9 @@
+---
+title: "design_m"
+output: md_document
+---
+
+# Number of measurements per cluster-period
+
+__swcrt__ identifies optimal designs for a specific number of measurements per cluste-period.
+Specify your chosen number of measurements per cluster-period here.

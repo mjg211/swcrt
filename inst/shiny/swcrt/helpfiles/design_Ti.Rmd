@@ -1,0 +1,9 @@
+---
+title: "design_Ti"
+output: md_document
+---
+
+# Number of time periods
+
+__swcrt__ identifies optimal designs for a specific number of time periods.
+Specify your chosen number of time periods here.

@@ -1,0 +1,9 @@
+---
+title: "design_extreme_seq"
+output: md_document
+---
+
+# Sequences of all control/intervention allocation
+
+__swcrt__ identifies optimal designs following an assumption on whether sequences entirely composed of control/intervention periods are permitted.
+Specify whether such sequences are allowed here.
