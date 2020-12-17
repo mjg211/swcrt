@@ -9,16 +9,31 @@ Authors@R: person(given   = "Michael J",
 Imports:
     dplyr,
     flextable,
+    ggplot2,
+    iterpc,
     knitr,
+    magrittr,
+    MASS,
     officer,
+    pracma,
+    Rfast,
+    rmarkdown,
+    shiny,
+    shinyalert,
+    shinycssloaders,
+    shinydashboard,
+    shinyFeedback,
+    shinyhelper,
+    shinyjs,
+    shinyWidgets,
+    stats,
+    tibble,
     viridis
 Description: Helps produce diagrams of stepped-wedge cluster randomised trial
    designs. The produced diagrams can be exported in .docx, .png, and .pptx
    formats.
 License: MIT + file LICENSE
 LazyData: TRUE
-Suggests:
-    rmarkdown,
 Date: 2020-09-10
 URL: https://mjg211.github.io/swcrt, https://github.com/mjg211/swcrt
 BugReports: https://github.com/mjg211/swcrt/issues
