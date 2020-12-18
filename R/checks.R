@@ -147,7 +147,7 @@ check_names                    <- function(row_names, col_names,
   }
 }
 
-check_real_range <- function(value, name, range, len) {
+check_real_range               <- function(value, name, range, len) {
   if (is.finite(len)) {
     if (any(length(value) != len, !is.numeric(value), value < range[1],
             value > range[2])) {
@@ -167,7 +167,27 @@ check_real_range <- function(value, name, range, len) {
   }
 }
 
-check_real_range_strict <- function(value, name, range, len) {
+check_real_range_lstrict       <- function(value, name, range, len) {
+  if (is.finite(len)) {
+    if (any(length(value) != len, !is.numeric(value), value <= range[1],
+            value > range[2])) {
+      if (len == 1) {
+        stop(name, " must be a single numeric that belongs to (", range[1], ",",
+             range[2], "]")
+      } else {
+        stop(name, " must be a numeric vector of length ", len, ", whose ",
+             "elements all belong to (", range[1], ",", range[2], "]")
+      }
+    }
+  } else {
+    if (any(!is.numeric(value), value <= range[1], value > range[2])) {
+      stop(name, " must be a numeric vector whose elements all belong to (",
+           range[1], ",", range[2], "]")
+    }
+  }
+}
+
+check_real_range_strict        <- function(value, name, range, len) {
   if (is.finite(len)) {
     if (any(length(value) != len, !is.numeric(value), value <= range[1],
             value >= range[2])) {

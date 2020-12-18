@@ -8,9 +8,9 @@ opt_sw_norm <- function(C = 20, Ti = 10, m = 10, rho0 = 0.1, r0 = 1, r = 1,
   C  <- check_integer_range(C, "C", c(1, Inf), 1)
   Ti <- check_integer_range(Ti, "Ti", c(2, Inf), 1)
   check_real_range_strict(m, "m", c(0, Inf), 1)
-  check_real_range_strict(rho0, "rho0", c(0, 1), 1)
-  check_real_range(r0, "r0", c(0, 1), 1)
-  check_real_range(r, "r", c(0, 1), 1)
+  check_real_range(rho0, "rho0", c(0, 1), 1)
+  check_real_range_lstrict(r0, "r0", c(0, 1), 1)
+  check_real_range_lstrict(r, "r", c(0, 1), 1)
   check_logical(extreme_seq, "extreme_seq")
   check_belong(time_effect, "time_effect", c("discrete", "linear", "quadratic",
                                              "cubic", "quartic", "quintic"))
