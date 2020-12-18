@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   swcrt: swcrt.html
-last_built: 2020-12-17T15:44Z
+last_built: 2020-12-18T09:02Z
 urls:
   reference: https://mjg211.github.io/swcrt/reference
   article: https://mjg211.github.io/swcrt/articles
