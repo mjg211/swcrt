@@ -110,7 +110,7 @@ opt_sw_norm <- function(C = 20, Ti = 10, m = 10, rho0 = 0.1, r0 = 1, r = 1,
                            extreme_seq, time_effect, symmetric_w)
   }
   optimal_num_rounded         <-
-    poss_allocations[which(poss_var == min(poss_var)), ]
+    poss_allocations[which(poss_var == min(poss_var))[1], ]
   optimal_weights_rounded     <- optimal_num_rounded/C
   optimal_design_rounded      <- matrix(0, C, Ti)
   counter                     <- 1
