@@ -71,7 +71,12 @@ opt_sw_norm <- function(C = 20, Ti = 10, m = 10, rho0 = 0.1, r0 = 1, r = 1,
                                             tol           = 1e-11,
                                             maxfeval      = 1e6,
                                             maxiter       = 1e6)
-  optimal_weights_exact  <- optimal_solution_exact$par
+  if (symmetric_w) {
+    optimal_weights_exact  <- c(optimal_solution_exact$par,
+                                rev(optimal_solution_exact$par))
+  } else {
+    optimal_weights_exact  <- optimal_solution_exact$par
+  }
   rownames(X_seqs)       <- paste0("w[", 1:num_seqs, "] = ",
                                    round(optimal_weights_exact, 3))
 
