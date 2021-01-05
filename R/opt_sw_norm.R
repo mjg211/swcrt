@@ -72,8 +72,13 @@ opt_sw_norm <- function(C = 20, Ti = 10, m = 10, rho0 = 0.1, r0 = 1, r = 1,
                                             maxfeval      = 1e6,
                                             maxiter       = 1e6)
   if (symmetric_w) {
-    optimal_weights_exact  <- c(optimal_solution_exact$par,
-                                rev(optimal_solution_exact$par))
+    if (Ti%%2 == 0) {
+      optimal_weights_exact  <- c(optimal_solution_exact$par,
+                                  rev(optimal_solution_exact$par[-len_w]))
+    } else {
+      optimal_weights_exact  <- c(optimal_solution_exact$par,
+                                  rev(optimal_solution_exact$par))
+    }
   } else {
     optimal_weights_exact  <- optimal_solution_exact$par
   }
