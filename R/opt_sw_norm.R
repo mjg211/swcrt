@@ -91,46 +91,51 @@ opt_sw_norm <- function(C = 20, Ti = 10, m = 10, rho0 = 0.1, r0 = 1, r = 1,
   optimal_num_rounded         <- round(optimal_num_exact)
   fact                        <- (num_seqs <= 10)
   poss_allocations            <-
-    iterpc::getall(iterpc::iterpc(ifelse(fact, 3, 2), num_seqs, ordered = TRUE,
-                                  replace = TRUE))
-  for (i in 1:num_seqs) {
-    if (optimal_num_rounded[i] == 0) {
-      poss_allocations[, i]   <- (0:(1 + fact))[poss_allocations[, i]]
-    } else if (optimal_num_rounded[i] == C) {
-      poss_allocations[, i]   <- ((C - (1 + fact)):C)[poss_allocations[, i]]
-    } else {
-      if (num_seqs <= 10) {
-        poss_allocations[, i] <-
-          ((optimal_num_rounded[i] - 1):
-             (optimal_num_rounded[i] + 1))[poss_allocations[, i]]
+    try(iterpc::getall(iterpc::iterpc(ifelse(fact, 3, 2), num_seqs,
+                                      ordered = TRUE, replace = TRUE)),
+        silent = TRUE)
+  if (class(poss_allocations) != "try-error") {
+    for (i in 1:num_seqs) {
+      if (optimal_num_rounded[i] == 0) {
+        poss_allocations[, i]   <- (0:(1 + fact))[poss_allocations[, i]]
+      } else if (optimal_num_rounded[i] == C) {
+        poss_allocations[, i]   <- ((C - (1 + fact)):C)[poss_allocations[, i]]
       } else {
-        poss_allocations[, i] <-
-          c(floor(optimal_num_exact[i]),
-            ceiling(optimal_num_exact[i]))[poss_allocations[, i]]
+        if (num_seqs <= 10) {
+          poss_allocations[, i] <-
+            ((optimal_num_rounded[i] - 1):
+               (optimal_num_rounded[i] + 1))[poss_allocations[, i]]
+        } else {
+          poss_allocations[, i] <-
+            c(floor(optimal_num_exact[i]),
+              ceiling(optimal_num_exact[i]))[poss_allocations[, i]]
+        }
       }
     }
-  }
-  poss_allocations            <-
-    poss_allocations[Rfast::rowsums(poss_allocations) == C, ]
-  num_poss_allocations        <- nrow(poss_allocations)
-  poss_var                    <- numeric(num_poss_allocations)
-  for (i in 1:num_poss_allocations) {
-    poss_var[i]               <-
-      opt_sw_norm_internal(poss_allocations[i, ]/C, C, Ti, m, rho0, r0, r,
-                           extreme_seq, time_effect, symmetric_w)
-  }
-  optimal_num_rounded         <-
-    poss_allocations[which(poss_var == min(poss_var))[1], ]
-  optimal_weights_rounded     <- optimal_num_rounded/C
-  optimal_design_rounded      <- matrix(0, C, Ti)
-  counter                     <- 1
-  for (i in 1:num_seqs) {
-    if (optimal_num_rounded[i] > 0) {
-      optimal_design_rounded[counter:(counter +
-                                        optimal_num_rounded[i] - 1), ] <-
-        matrix(X_seqs[i, ], optimal_num_rounded[i], Ti, byrow = TRUE)
-      counter                 <- counter + optimal_num_rounded[i]
+    poss_allocations            <-
+      poss_allocations[Rfast::rowsums(poss_allocations) == C, ]
+    num_poss_allocations        <- nrow(poss_allocations)
+    poss_var                    <- numeric(num_poss_allocations)
+    for (i in 1:num_poss_allocations) {
+      poss_var[i]               <-
+        opt_sw_norm_internal(poss_allocations[i, ]/C, C, Ti, m, rho0, r0, r,
+                             extreme_seq, time_effect, symmetric_w)
     }
+    optimal_num_rounded         <-
+      poss_allocations[which(poss_var == min(poss_var))[1], ]
+    optimal_weights_rounded     <- optimal_num_rounded/C
+    optimal_design_rounded      <- matrix(0, C, Ti)
+    counter                     <- 1
+    for (i in 1:num_seqs) {
+      if (optimal_num_rounded[i] > 0) {
+        optimal_design_rounded[counter:(counter +
+                                          optimal_num_rounded[i] - 1), ] <-
+          matrix(X_seqs[i, ], optimal_num_rounded[i], Ti, byrow = TRUE)
+        counter                 <- counter + optimal_num_rounded[i]
+      }
+    }
+  } else {
+    optimal_design_rounded <- optimal_num_rounded <- optimal_weights_rounded <- NULL
   }
 
   ##### Output #################################################################
