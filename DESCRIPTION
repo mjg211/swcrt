@@ -1,7 +1,7 @@
 Package: swcrt
 Type: Package
 Title: Draw and export stepped-wedge cluster randomised trial design diagrams
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: person(given   = "Michael J",
                   family  = "Grayling",
                   email   = "michael.grayling@newcastle.ac.uk",
