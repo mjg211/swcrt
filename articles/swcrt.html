@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">swcrt</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/swcrt.html">Get started</a>
 </li>
@@ -62,7 +58,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mjg211/swcrt/">
+  <a href="https://github.com/mjg211/swcrt/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -81,11 +77,11 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams</h1>
-                        <h4 class="author">Michael J Grayling, Newcastle University (<a href="mailto:michael.grayling@newcastle.ac.uk" class="email">michael.grayling@newcastle.ac.uk</a>)</h4>
+                        <h4 data-toc-skip class="author">Michael J Grayling, Newcastle University (<a href="mailto:michael.grayling@newcastle.ac.uk" class="email">michael.grayling@newcastle.ac.uk</a>)</h4>
             
-            <h4 class="date">22/03/2021</h4>
+            <h4 data-toc-skip class="date">22/04/2022</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/mjg211/swcrt/blob/master/vignettes/swcrt.Rmd"><code>vignettes/swcrt.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mjg211/swcrt/blob/HEAD/vignettes/swcrt.Rmd" class="external-link"><code>vignettes/swcrt.Rmd</code></a></small>
       <div class="hidden name"><code>swcrt.Rmd</code></div>
 
     </div>
@@ -93,7 +89,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mjg211.github.io/swcrt">swcrt</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjg211.github.io/swcrt">swcrt</a></span><span class="op">)</span>
 <span class="co">#&gt; -----------------------------------------------------------------------------</span>
 <span class="co">#&gt; swcrt: Draw and export stepped-wedge cluster randomised trial design diagrams</span>
 <span class="co">#&gt; -----------------------------------------------------------------------------</span>
@@ -101,25 +97,25 @@
 <span class="co">#&gt; v.0.1: For an overview of the package's functionality enter: ?swcrt</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; For news on the latest updates enter: news(package = "swcrt")</span></code></pre></div>
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>1. Introduction</h1>
-<p><strong>swcrt</strong> is an R package that helps produce diagrams of stepped-wedge cluster randomised trial (SW-CRT) designs, like those advocated for inclusion when reporting SW-CRTs by <a href="https://doi.org/10.1136/bmj.k1614">Hemming <em>et al.</em> (2018)</a>. The produced diagrams can be exported in .docx, .png, and .pptx formats.</p>
-<div id="getting-started" class="section level2">
-<h2 class="hasAnchor">
-<a href="#getting-started" class="anchor"></a>1.1. Getting started</h2>
-<p>The latest development version of <strong>swcrt</strong> available from <a href="https://github.com/">GitHub</a> can be installed with:</p>
+<div class="section level2">
+<h2 id="introduction">1. Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p><strong>swcrt</strong> is an R package that helps produce diagrams of stepped-wedge cluster randomised trial (SW-CRT) designs, like those advocated for inclusion when reporting SW-CRTs by <a href="https://doi.org/10.1136/bmj.k1614" class="external-link">Hemming <em>et al.</em> (2018)</a>. The produced diagrams can be exported in .docx, .png, and .pptx formats.</p>
+<div class="section level3">
+<h3 id="getting-started">1.1. Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h3>
+<p>The latest development version of <strong>swcrt</strong> available from <a href="https://github.com/" class="external-link">GitHub</a> can be installed with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mjg211/swcrt"</span><span class="op">)</span></code></pre></div>
-<p>An introductory example of how to make use of the package’s core functionality can be found below. More detailed support is available in the remainder of this vignette. For further help, please contact <a href="https://www.newcastle-biostatistics.com/people/michael_grayling/">Michael Grayling</a> at <a href="mailto:michael.grayling@newcastle.ac.uk" class="email">michael.grayling@newcastle.ac.uk</a>.</p>
+<p>An introductory example of how to make use of the package’s core functionality can be found below. More detailed support is available in the remainder of this vignette. For further help, please contact <a href="https://www.newcastle-biostatistics.com/people/michael_grayling/" class="external-link">Michael Grayling</a> at <a href="mailto:michael.grayling@newcastle.ac.uk" class="email">michael.grayling@newcastle.ac.uk</a>.</p>
 </div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>1.2. Example</h2>
-<p>As a basic example, we consider reproducing the 4-cluster 5-time period design used in the trial reported by <a href="https://doi.org/10.1136/bmjopen-2013-002674">Bashour <em>et al.</em> (2013)</a>. First, create the design matrix using <code><a href="../reference/design_sw.html">design_sw()</a></code>:</p>
+<div class="section level3">
+<h3 id="example">1.2. Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h3>
+<p>As a basic example, we consider reproducing the 4-cluster 5-time period design used in the trial reported by <a href="https://doi.org/10.1136/bmjopen-2013-002674" class="external-link">Bashour <em>et al.</em> (2013)</a>. First, create the design matrix using <code><a href="../reference/design_sw.html">design_sw()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/design_sw.html">design_sw</a></span><span class="op">(</span>clusters_per_time_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>,
-               labels                   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"I"</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/design_sw.html">design_sw</a></span><span class="op">(</span>clusters_per_time_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>,
+               labels                   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"I"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">X</span>
 <span class="co">#&gt;   1   2   3   4   5  </span>
 <span class="co">#&gt; 1 "C" "I" "I" "I" "I"</span>
@@ -133,60 +129,58 @@
 <p><img src="example.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div id="available-functions" class="section level1">
-<h1 class="hasAnchor">
-<a href="#available-functions" class="anchor"></a>2. Available functions</h1>
-<p>Currently, two functions are exported for the user: <code>design_sw</code> and <code>draw_sw</code>. Details given in their help files is replicated below.</p>
-<div id="design_sw" class="section level2">
-<h2 class="hasAnchor">
-<a href="#design_sw" class="anchor"></a>2.1. <code>design_sw</code>
+<div class="section level2">
+<h2 id="available-functions">2. Available functions<a class="anchor" aria-label="anchor" href="#available-functions"></a>
 </h2>
-<div id="description" class="section level3">
-<h3 class="hasAnchor">
-<a href="#description" class="anchor"></a>Description</h3>
+<p>Currently, two functions are exported for the user: <code>design_sw</code> and <code>draw_sw</code>. Details given in their help files is replicated below.</p>
+<div class="section level3">
+<h3 id="design_sw">2.1. <code>design_sw</code><a class="anchor" aria-label="anchor" href="#design_sw"></a>
+</h3>
+<div class="section level4">
+<h4 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
+</h4>
 <p><code>design_sw</code> builds a binary treatment indicator matrix for a specified conventional (i.e., two treatment conditions, say control and experimental interventions) SW-CRT design, for subsequent use with <code>draw_sw</code>.</p>
 </div>
-<div id="usage" class="section level3">
-<h3 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h3>
+<div class="section level4">
+<h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/design_sw.html">design_sw</a></span><span class="op">(</span>clusters_per_time_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>,
-          labels                   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span><span class="op">)</span>,
-          row_names                <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">clusters_per_time_period</span><span class="op">)</span>,
-          col_names                <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">clusters_per_time_period</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/design_sw.html">design_sw</a></span><span class="op">(</span>clusters_per_time_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>,
+          labels                   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span><span class="op">)</span>,
+          row_names                <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">clusters_per_time_period</span><span class="op">)</span>,
+          col_names                <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">clusters_per_time_period</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="arguments" class="section level3">
-<h3 class="hasAnchor">
-<a href="#arguments" class="anchor"></a>Arguments</h3>
+<div class="section level4">
+<h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a>
+</h4>
 <ul>
 <li>
-<code>clusters_per_time_period</code>: A <code>numeric</code> <code>vector</code>; element <code>clusters_per_time_period[i]</code> indicates the number of clusters that switch to the experimental intervention in time period <code>i</code>. The length of <code>clusters_per_time_period</code> thus indicates the number of time periods. Defaults to <code><a href="https://rdrr.io/r/base/c.html">c(0, 1, 1, 1, 1)</a></code>.</li>
+<code>clusters_per_time_period</code>: A <code>numeric</code> <code>vector</code>; element <code>clusters_per_time_period[i]</code> indicates the number of clusters that switch to the experimental intervention in time period <code>i</code>. The length of <code>clusters_per_time_period</code> thus indicates the number of time periods. Defaults to <code>c(0, 1, 1, 1, 1)</code>.</li>
 <li>
-<code>labels</code>: A <code>vector</code> of <code>length</code> two, giving labels for the two intervention conditions. Defaults to <code><a href="https://rdrr.io/r/base/c.html">c("0", "1")</a></code>.</li>
+<code>labels</code>: A <code>vector</code> of <code>length</code> two, giving labels for the two intervention conditions. Defaults to <code>c("0", "1")</code>.</li>
 <li>
-<code>row_names</code>: A <code>vector</code>, giving <code>rownames</code> to add to the produced design. Must have <code>length</code> equal to <code><a href="https://rdrr.io/r/base/sum.html">sum(clusters_per_time_period)</a></code>.</li>
+<code>row_names</code>: A <code>vector</code>, giving <code>rownames</code> to add to the produced design. Must have <code>length</code> equal to <code>sum(clusters_per_time_period)</code>.</li>
 <li>
-<code>col_names</code>: A <code>vector</code>, giving <code>colnames</code> to add to the produced design. Must have <code>length</code> equal to <code><a href="https://rdrr.io/r/base/length.html">length(clusters_per_time_period)</a></code>.</li>
+<code>col_names</code>: A <code>vector</code>, giving <code>colnames</code> to add to the produced design. Must have <code>length</code> equal to <code>length(clusters_per_time_period)</code>.</li>
 </ul>
 </div>
-<div id="value" class="section level3">
-<h3 class="hasAnchor">
-<a href="#value" class="anchor"></a>Value</h3>
+<div class="section level4">
+<h4 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a>
+</h4>
 <p>Returns the binary treatment indicator matrix, in <code>matrix</code> form, for the implied SW-CRT design. This can be passed to <code>draw_sw</code>.</p>
 </div>
 </div>
-<div id="draw_sw" class="section level2">
-<h2 class="hasAnchor">
-<a href="#draw_sw" class="anchor"></a>2.2. <code>draw_sw</code>
-</h2>
-<div id="description-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#description-1" class="anchor"></a>Description</h3>
+<div class="section level3">
+<h3 id="draw_sw">2.2. <code>draw_sw</code><a class="anchor" aria-label="anchor" href="#draw_sw"></a>
+</h3>
+<div class="section level4">
+<h4 id="description-1">Description<a class="anchor" aria-label="anchor" href="#description-1"></a>
+</h4>
 <p><code>draw_sw</code> draws SW-CRT design diagrams that can be exported in .docx, .png, and .pptx formats.</p>
 </div>
-<div id="usage-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#usage-1" class="anchor"></a>Usage</h3>
+<div class="section level4">
+<h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a>
+</h4>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span>design         <span class="op">=</span> <span class="fu"><a href="../reference/design_sw.html">design_sw</a></span><span class="op">(</span><span class="op">)</span>,
         cp_contents    <span class="op">=</span> <span class="va">design</span>,
@@ -203,9 +197,9 @@
         make           <span class="op">=</span> <span class="st">"print"</span>,
         filename       <span class="op">=</span> <span class="st">"swcrt"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="arguments-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#arguments-1" class="anchor"></a>Arguments</h3>
+<div class="section level4">
+<h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a>
+</h4>
 <ul>
 <li>
 <code>design</code>: A SW-CRT design (i.e., information on the planned roll-out) to draw a diagram for. Must be either a <code>data.frame</code> or a matrix. Defaults to <code><a href="../reference/design_sw.html">design_sw()</a></code>.</li>
@@ -237,9 +231,9 @@
 <code>filename</code>: A <code>character</code> string, giving the filename to use for any files that are to be saved. Defaults to <code>"swcrt"</code>.</li>
 </ul>
 </div>
-<div id="value-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#value-1" class="anchor"></a>Value</h3>
+<div class="section level4">
+<h4 id="value-1">Value<a class="anchor" aria-label="anchor" href="#value-1"></a>
+</h4>
 <p>A <code>list</code> containing the following elements:</p>
 <ul>
 <li>A <code>flextable</code> in the slot <code>$table_design</code> containing the constructed SW-CRT diagram.</li>
@@ -250,172 +244,158 @@
 </div>
 </div>
 </div>
-<div id="detailed-example" class="section level1">
-<h1 class="hasAnchor">
-<a href="#detailed-example" class="anchor"></a>3. Detailed example</h1>
+<div class="section level2">
+<h2 id="detailed-example">3. Detailed example<a class="anchor" aria-label="anchor" href="#detailed-example"></a>
+</h2>
 <p>We now demonstrate the utility of each of the input variables through a single minimally complex example. We consider the case where there are three ‘intervention’ conditions: control (<code>"C"</code>), transition (<code>"T"</code>), and experimental (<code>"E"</code>). The planned design is:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">design</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">design</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"E"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"E"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Note that the sequences are deliberately not ordered in a ‘clean’ manner. Using all of the default parameters, we use <code>draw_sw</code> as follows:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">default</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.png" width="50%" style="display: block; margin: auto;"></p>
-<div id="design" class="section level2">
-<h2 class="hasAnchor">
-<a href="#design" class="anchor"></a>3.1. <code>design</code>
-</h2>
+<div class="section level3">
+<h3 id="design">3.1. <code>design</code><a class="anchor" aria-label="anchor" href="#design"></a>
+</h3>
 <p>Above, <code>design</code> is specified to <code>draw_sw</code> in <code>matrix</code> form. This can be specified instead as a <code>data.frame</code> if desired. Thus the following produces the same output as the above:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">changing_design</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">design</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">changing_design</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">design</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="cp_contents" class="section level2">
-<h2 class="hasAnchor">
-<a href="#cp_contents" class="anchor"></a>3.2. <code>cp_contents</code>
-</h2>
+<div class="section level3">
+<h3 id="cp_contents">3.2. <code>cp_contents</code><a class="anchor" aria-label="anchor" href="#cp_contents"></a>
+</h3>
 <p>Suppose that the plan is to accrue 100 measurements (patient outcomes) in each cluster-period in the control condition, 0 measurements in each cluster-period in the transition condition, and 50 measurements in each cluster-period in the experimental condition. We can add this information to the diagram, rather than labelling the cluster-period cells with C, T, and E, using the argument <code>cp_contents</code>, as follows:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cp_contents</span>          <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
-                              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
-                              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
-                              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
-                              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
-                              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span><span class="op">)</span>,
-                              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span><span class="op">)</span>,
-                              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">cp_contents</span>          <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
+                              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
+                              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
+                              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
+                              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span>,  <span class="fl">50</span><span class="op">)</span>,
+                              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span><span class="op">)</span>,
+                              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span><span class="op">)</span>,
+                              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">100</span>,   <span class="fl">0</span>,  <span class="fl">50</span><span class="op">)</span><span class="op">)</span>
 <span class="va">changing_cp_contents</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, <span class="va">measurements</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.2.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Observe that the cells are still coloured according to the intervention condition.</p>
 </div>
-<div id="row_names" class="section level2">
-<h2 class="hasAnchor">
-<a href="#row_names" class="anchor"></a>3.3. <code>row_names</code>
-</h2>
+<div class="section level3">
+<h3 id="row_names">3.3. <code>row_names</code><a class="anchor" aria-label="anchor" href="#row_names"></a>
+</h3>
 <p>By default, <code>draw_sw</code> labels the rows of the diagram from 1 through to the number of clusters (i.e., the number of rows in <code>design</code>). If we wanted to label these differently (e.g., using location names), we can do this by first adding the desired row names to <code>design</code> and then setting <code>row_names = T</code> in the call to <code>draw_sw</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">design</span><span class="op">)</span>   <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">design</span><span class="op">)</span>   <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>
 <span class="va">changing_row_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, row_names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.3.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="col_names" class="section level2">
-<h2 class="hasAnchor">
-<a href="#col_names" class="anchor"></a>3.4. <code>col_names</code>
-</h2>
+<div class="section level3">
+<h3 id="col_names">3.4. <code>col_names</code><a class="anchor" aria-label="anchor" href="#col_names"></a>
+</h3>
 <p>Similar to the way we used <code>row_names</code> above, we can modify the labels for the diagrams columns using <code>col_names</code>. For example:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">design</span><span class="op">)</span>   <span class="op">&lt;-</span> <span class="va">month.abb</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">design</span><span class="op">)</span>   <span class="op">&lt;-</span> <span class="va">month.abb</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>
 <span class="va">changing_col_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, col_names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.4.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="colours" class="section level2">
-<h2 class="hasAnchor">
-<a href="#colours" class="anchor"></a>3.5. <code>colours</code>
-</h2>
+<div class="section level3">
+<h3 id="colours">3.5. <code>colours</code><a class="anchor" aria-label="anchor" href="#colours"></a>
+</h3>
 <p>By default, <code>swcrt</code> will choose the fill colours associated with the intervention conditions for you. If you want to specify these yourself, you can use the option <code>colours</code>, which must be a named (see <code>names</code>) <code>character</code> <code>vector</code> containing a value for all the intervention conditions given in <code>design</code>:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">changing_colours</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span> <span class="op">=</span> <span class="st">"steelblue1"</span>,
+<code class="sourceCode R"><span class="va">changing_colours</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span> <span class="op">=</span> <span class="st">"steelblue1"</span>,
                                                 <span class="st">"T"</span> <span class="op">=</span> <span class="st">"steelblue3"</span>,
                                                 <span class="st">"E"</span> <span class="op">=</span> <span class="st">"steelblue4"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.5.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="combine_rows" class="section level2">
-<h2 class="hasAnchor">
-<a href="#combine_rows" class="anchor"></a>3.6. <code>combine_rows</code>
-</h2>
+<div class="section level3">
+<h3 id="combine_rows">3.6. <code>combine_rows</code><a class="anchor" aria-label="anchor" href="#combine_rows"></a>
+</h3>
 <p>In some cases, particularly for designs with a large number of clusters, it may make sense to plot the design with the rows defining the unique sequences in use. This can be achieved using <code>combine_rows</code>, which also perhaps row name manipulation for us:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">changing_combine_rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, combine_rows <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.6.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="merge_cols" class="section level2">
-<h2 class="hasAnchor">
-<a href="#merge_cols" class="anchor"></a>3.7. <code>merge_cols</code>
-</h2>
+<div class="section level3">
+<h3 id="merge_cols">3.7. <code>merge_cols</code><a class="anchor" aria-label="anchor" href="#merge_cols"></a>
+</h3>
 <p>In some cases, we might want to within rows merge across columns that contain the same content. This can be achieved using the input <code>merge_cols</code> as follows:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">changing_merge_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, merge_cols <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.7.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="xlab" class="section level2">
-<h2 class="hasAnchor">
-<a href="#xlab" class="anchor"></a>3.8. <code>xlab</code>
-</h2>
+<div class="section level3">
+<h3 id="xlab">3.8. <code>xlab</code><a class="anchor" aria-label="anchor" href="#xlab"></a>
+</h3>
 <p>We can change the label for the diagram’s columns using <code>xlab</code>:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">changing_xlab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, xlab <span class="op">=</span> <span class="st">"Periods of time"</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.8.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="ylab" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ylab" class="anchor"></a>3.9. <code>ylab</code>
-</h2>
+<div class="section level3">
+<h3 id="ylab">3.9. <code>ylab</code><a class="anchor" aria-label="anchor" href="#ylab"></a>
+</h3>
 <p>Similarly, we can change the label for the diagram’s rows using <code>ylab</code>:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">changing_ylab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, ylab <span class="op">=</span> <span class="st">"Group"</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.9.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="cp_text_colour" class="section level2">
-<h2 class="hasAnchor">
-<a href="#cp_text_colour" class="anchor"></a>3.10. <code>cp_text_colour</code>
-</h2>
+<div class="section level3">
+<h3 id="cp_text_colour">3.10. <code>cp_text_colour</code><a class="anchor" aria-label="anchor" href="#cp_text_colour"></a>
+</h3>
 <p>Certain cluster-period fill colours may make reading the contents of the cluster-periods challenging. We can overcome this by modifying the cluster-period text colour with <code>cp_text_colour</code>:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">changing_cp_text_colour</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, cp_text_colour <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.10.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="key_interventions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#key_interventions" class="anchor"></a>3.11. <code>key_interventions</code>
-</h2>
+<div class="section level3">
+<h3 id="key_interventions">3.11. <code>key_interventions</code><a class="anchor" aria-label="anchor" href="#key_interventions"></a>
+</h3>
 <p>Particularly when the cluster-period cells are labelled with something other than the intervention condition, it may be helpful to produce a separate key describing the intervention conditions in more detail. We can do this with <code>key_intervention</code>, which should be a named <code>character</code> <code>vector</code>:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">changing_key_interventions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>,
-                                      key_interventions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span> <span class="op">=</span> <span class="st">"Control"</span>,
+                                      key_interventions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span> <span class="op">=</span> <span class="st">"Control"</span>,
                                                             <span class="st">"T"</span> <span class="op">=</span> <span class="st">"Transition"</span>,
                                                             <span class="st">"E"</span> <span class="op">=</span>
                                                               <span class="st">"Experimental"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>This produces the diagram as before, but also provides: <img src="eg3.11_key_interventions.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="key_time_periods" class="section level2">
-<h2 class="hasAnchor">
-<a href="#key_time_periods" class="anchor"></a>3.12. <code>key_time_periods</code>
-</h2>
+<div class="section level3">
+<h3 id="key_time_periods">3.12. <code>key_time_periods</code><a class="anchor" aria-label="anchor" href="#key_time_periods"></a>
+</h3>
 <p>Similarly to the above, we can also produce a key giving more detail on the time periods with <code>key_time_periods</code>:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">key_time_periods</span>           <span class="op">&lt;-</span> <span class="va">month.abb</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">key_time_periods</span><span class="op">)</span>    <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">key_time_periods</span><span class="op">)</span>    <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>
 <span class="va">changing_key_interventions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>,
                                       key_time_periods <span class="op">=</span> <span class="va">key_time_periods</span><span class="op">)</span></code></pre></div>
 <p><img src="eg3.12_key_time_periods.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="make" class="section level2">
-<h2 class="hasAnchor">
-<a href="#make" class="anchor"></a>3.13. <code>make</code>
-</h2>
+<div class="section level3">
+<h3 id="make">3.13. <code>make</code><a class="anchor" aria-label="anchor" href="#make"></a>
+</h3>
 <p><code>swcrt</code> can print the produced diagram for view in R, and can export the diagram in a variety of formats. Different formats can be produced simultaneously. We specify what we desire using <code>make</code>. E.g., all possible options:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">changing_make</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, make <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"print"</span>, <span class="st">"docx"</span>, <span class="st">"png"</span>, <span class="st">"pptx"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">changing_make</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, make <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"print"</span>, <span class="st">"docx"</span>, <span class="st">"png"</span>, <span class="st">"pptx"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="filename" class="section level2">
-<h2 class="hasAnchor">
-<a href="#filename" class="anchor"></a>3.14. <code>filename</code>
-</h2>
+<div class="section level3">
+<h3 id="filename">3.14. <code>filename</code><a class="anchor" aria-label="anchor" href="#filename"></a>
+</h3>
 <p>When we produce a .docx, .png, or .pptx file, a filename is required. This is specified using <code>filename</code>. For example:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">changing_filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_sw.html">draw_sw</a></span><span class="op">(</span><span class="va">design</span>, make <span class="op">=</span> <span class="st">"docx"</span>, filename <span class="op">=</span> <span class="st">"different_name"</span><span class="op">)</span></code></pre></div>
 <p>Will save a file different_name.docx.</p>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
-<p>Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA. The effect of training doctors in communication skills on women’s satisfaction with doctor–woman relationship during labour and delivery: A stepped wedge cluster randomised trial in Damascus. <em>BMJ Open</em> 2013;<strong>3</strong>,e002674. DOI: <a href="https://doi.org/10.1136/bmjopen-2013-002674">10.1136/bmjopen-2013-002674</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/23945729/">23945729</a>.</p>
-<p>Hemming K, Taljaard M, McKenzie JE, Hooper R, Copas A, Thompson JA, Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein CE, Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer C, Forbes AB, Grimshaw JM. Reporting of stepped wedge cluster randomised trials: Extension of the CONSORT 2010 statement with explanation and elaboration. <em>BMJ</em> 2018;<strong>363</strong>,k1614. DOI: <a href="https://doi.org/10.1136/bmj.k1614">10.1136/bmj.k1614</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30413417/">30413417</a>.</p>
+<div class="section level3">
+<h3 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h3>
+<p>Bashour HN, Kanaan M, Kharouf MH, Abdulsalam AA, Tabbaa MA, Cheikha SA. The effect of training doctors in communication skills on women’s satisfaction with doctor–woman relationship during labour and delivery: A stepped wedge cluster randomised trial in Damascus. <em>BMJ Open</em> 2013;<strong>3</strong>,e002674. DOI: <a href="https://doi.org/10.1136/bmjopen-2013-002674" class="external-link">10.1136/bmjopen-2013-002674</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/23945729/" class="external-link">23945729</a>.</p>
+<p>Hemming K, Taljaard M, McKenzie JE, Hooper R, Copas A, Thompson JA, Dixon-Woods M, Aldcroft A, Doussau A, Grayling M, Kristunas C, Goldstein CE, Campbell MK, Girling A, Eldridge S, Campbell MJ, Lilford RJ, Weijer C, Forbes AB, Grimshaw JM. Reporting of stepped wedge cluster randomised trials: Extension of the CONSORT 2010 statement with explanation and elaboration. <em>BMJ</em> 2018;<strong>363</strong>,k1614. DOI: <a href="https://doi.org/10.1136/bmj.k1614" class="external-link">10.1136/bmj.k1614</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30413417/" class="external-link">30413417</a>.</p>
 </div>
 </div>
   </div>
@@ -431,11 +411,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Michael J Grayling.</p>
+  <p></p>
+<p>Developed by Michael J Grayling.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -443,6 +425,8 @@
 
   
 
+
+  
 
   </body>
 </html>

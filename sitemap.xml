@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://mjg211.github.io/swcrt/404.html</loc>
+  </url>
+  <url>
+    <loc>https://mjg211.github.io/swcrt/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://mjg211.github.io/swcrt/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://mjg211.github.io/swcrt/about.html</loc>
+  </url>
+  <url>
+    <loc>https://mjg211.github.io/swcrt/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mjg211.github.io/swcrt/articles/swcrt.html</loc>
+  </url>
+  <url>
+    <loc>https://mjg211.github.io/swcrt/authors.html</loc>
+  </url>
+  <url>
     <loc>https://mjg211.github.io/swcrt/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mjg211.github.io/swcrt/news/index.html</loc>
   </url>
   <url>
     <loc>https://mjg211.github.io/swcrt/reference/design_sw.html</loc>
@@ -13,9 +37,9 @@
     <loc>https://mjg211.github.io/swcrt/reference/gui.html</loc>
   </url>
   <url>
-    <loc>https://mjg211.github.io/swcrt/reference/swcrt-package.html</loc>
+    <loc>https://mjg211.github.io/swcrt/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://mjg211.github.io/swcrt/articles/swcrt.html</loc>
+    <loc>https://mjg211.github.io/swcrt/reference/swcrt-package.html</loc>
   </url>
 </urlset>
