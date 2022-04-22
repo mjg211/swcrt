@@ -64,20 +64,16 @@ build_row_names        <- function(plot_design, cp_contents, row_names,
 
 information_cs_sw_norm <- function(C, Ti, m, sigma_e2, sigma_c2, U, V, W) {
   scaled_sigmae2 <- sigma_e2/m
-  ((C*U - W)*scaled_sigma2 + (U^2 + C*Ti*U - Ti*W - C*V)*sigma_c2)/
-    (C*scaled_sigma2*(scaled_sigma2 + Ti*sigma_c2))
+  ((C*U - W)*scaled_sigmae2 + (U^2 + C*Ti*U - Ti*W - C*V)*sigma_c2)/
+    (C*scaled_sigmae2*(scaled_sigmae2 + Ti*sigma_c2))
 }
 
-opt_sw_norm_internal   <- function(w, C, Ti, m, rho0, r0, r, extreme_seq,
-                                   time_effect, symmetric_w, sigma = 1) {
-  if (symmetric_w) {
-    if (Ti%%2 == 0) {
-      w_internal            <- c(w, rev(w[-length(w)]))
-    } else {
-      w_internal            <- c(w, rev(w))
-    }
+opt_sw_norm_internal   <- function(w, C, Ti, m, rho0, r, extreme_seq,
+                                   time_effect, sigma = 1) {
+  if (Ti%%2 == 0) {
+    w_internal              <- c(w, rev(w[-length(w)]))
   } else {
-    w_internal              <- w
+    w_internal              <- c(w, rev(w))
   }
   sigma2                    <- sigma^2
   sigma_c2                  <- rho0*sigma2
@@ -86,11 +82,7 @@ opt_sw_norm_internal   <- function(w, C, Ti, m, rho0, r0, r, extreme_seq,
   I_Ti                      <- diag(Ti)
   Ti_min_1                  <- Ti - 1
   seq_Ti_min_1              <- 1:Ti_min_1
-  if (time_effect == "discrete") {
-    R                       <- toeplitz(c(1, r0*r^seq_Ti_min_1))
-  } else {
-    R                       <- toeplitz(c(1, r0*r^(2*seq_Ti_min_1/Ti_min_1)))
-  }
+  R                         <- toeplitz(c(1, r^(2*seq_Ti_min_1/Ti_min_1)))
   omega_denom               <- sigma_c2 + sigma_e2/m
   omega                     <- sigma_c2/omega_denom
   Vinv                      <-

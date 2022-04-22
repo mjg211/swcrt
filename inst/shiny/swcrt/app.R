@@ -138,20 +138,6 @@ ui <- function(request) {
                   size    = "m",
                   colour  = "black"),
               shiny::numericInput(
-                inputId  = "opt_sw_norm_r0",
-                label    = "r0 (autoregressive structure parameter):",
-                value   = 1,
-                min     = 0,
-                max     = 1,
-                step    = 0.01
-              ) %>%
-                shinyhelper::helper(
-                  type    = "markdown",
-                  title   = "",
-                  content = "design_r0",
-                  size    = "m",
-                  colour  = "black"),
-              shiny::numericInput(
                 inputId  = "opt_sw_norm_r",
                 label    = "r (autoregressive structure parameter):",
                 value   = 1,
@@ -342,14 +328,6 @@ server <- function(input, output, session) {
       text    = "Must belong to [0,1]")
   })
 
-  shiny::observeEvent(input$opt_sw_norm_r0, {
-    shinyFeedback::feedbackDanger(
-      inputId = "opt_sw_norm_r0",
-      show    = any(input$opt_sw_norm_r0 <= 0,
-                    input$opt_sw_norm_r0 > 1),
-      text    = "Must belong to (0,1]")
-  })
-
   shiny::observeEvent(input$opt_sw_norm_r, {
     shinyFeedback::feedbackDanger(
       inputId = "opt_sw_norm_r",
@@ -378,13 +356,11 @@ server <- function(input, output, session) {
                                       Ti          = input$opt_sw_norm_Ti,
                                       m           = input$opt_sw_norm_m,
                                       rho0        = input$opt_sw_norm_rho0,
-                                      r0          = input$opt_sw_norm_r0,
                                       r           = input$opt_sw_norm_r,
                                       extreme_seq =
                                         input$opt_sw_norm_extreme_seq,
                                       time_effect =
-                                        input$opt_sw_norm_time_effect,
-                                      symmetric_w = FALSE)
+                                        input$opt_sw_norm_time_effect)
     progress$inc(amount = 0.25, message = "Producing design summary")
     rmarkdown::render(
       input         = "opt_sw_norm_summary.Rmd",
@@ -394,7 +370,6 @@ server <- function(input, output, session) {
                            Ti                      = input$opt_sw_norm_Ti,
                            m                       = input$opt_sw_norm_m,
                            rho0                    = input$opt_sw_norm_rho0,
-                           r0                      = input$opt_sw_norm_r0,
                            r                       = input$opt_sw_norm_r,
                            extreme_seq             =
                              input$opt_sw_norm_extreme_seq,
@@ -485,7 +460,6 @@ server <- function(input, output, session) {
                          Ti                      = input$opt_sw_norm_Ti,
                          m                       = input$opt_sw_norm_m,
                          rho0                    = input$opt_sw_norm_rho0,
-                         r0                      = input$opt_sw_norm_r0,
                          r                       = input$opt_sw_norm_r,
                          extreme_seq             =
                            input$opt_sw_norm_extreme_seq,

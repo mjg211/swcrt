@@ -32,7 +32,8 @@ plot.swcrt_opt_sw_norm <- function(x = opt_sw_norm(), output = FALSE,
                      factor(as.vector(t(x$optimal_design_rounded))))
   plots$rounded        <-
     ggplot2::ggplot(df_rounded,
-                    ggplot2::aes(`Time period`, Cluster, fill = condition)) +
+                    ggplot2::aes(`Time period`, rev(Cluster),
+                                 fill = condition)) +
     ggplot2::geom_tile(colour = "black", size = 0.5) +
     ggplot2::scale_x_continuous(expand = c(0, 0),
                                 breaks = seq(1, Ti, 1)) +
@@ -44,7 +45,8 @@ plot.swcrt_opt_sw_norm <- function(x = opt_sw_norm(), output = FALSE,
                    axis.ticks.x    = ggplot2::element_blank(),
                    axis.ticks.y    = ggplot2::element_blank(),
                    axis.text.x     = ggplot2::element_text(colour = "black"),
-                   axis.text.y     = ggplot2::element_text(colour = "black"))
+                   axis.text.y     = ggplot2::element_text(colour = "black")) +
+    ggplot2::ylab("Cluster")
   num_seqs             <- nrow(x$optimal_design_exact)
   weight_label         <- paste0("italic(w)[", 1:num_seqs, "] == ",
                                  round(x$optimal_weights_exact, 3))
@@ -58,7 +60,7 @@ plot.swcrt_opt_sw_norm <- function(x = opt_sw_norm(), output = FALSE,
                                            weight_label))
   plots$exact_equal    <-
     ggplot2::ggplot(df_exact,
-                    ggplot2::aes(`Time period`, `weight label`,
+                    ggplot2::aes(`Time period`, rev(`weight label`),
                                  fill = condition, group = sequence)) +
     ggplot2::geom_tile(colour = "black", size = 0.5) +
     ggplot2::scale_x_continuous(expand = c(0, 0),
@@ -78,8 +80,8 @@ plot.swcrt_opt_sw_norm <- function(x = opt_sw_norm(), output = FALSE,
     ggplot2::ggplot(df_exact,
                     ggplot2::aes(`Time period`, weight,
                                  fill = condition, group = rev(sequence))) +
-    ggplot2::geom_bar(position = "stack", stat = "identity", width = 1,
-                      colour = "black") +
+    ggplot2::geom_bar(position = ggplot2::position_stack(reverse = TRUE),
+                      stat = "identity", width = 1, colour = "black") +
     ggplot2::scale_x_continuous(expand = c(0, 0),
                                 breaks = seq(1, Ti, 1)) +
     ggplot2::scale_y_continuous(expand = c(0, 0)) +

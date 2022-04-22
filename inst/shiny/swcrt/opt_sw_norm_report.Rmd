@@ -6,7 +6,6 @@ params:
   Ti:                      NA
   m:                       NA
   rho0:                    NA
-  r0:                      NA
   r:                       NA
   extreme_seq:             NA
   time_effect:             NA
@@ -28,7 +27,6 @@ C                       <- params$C
 Ti                      <- params$Ti
 m                       <- params$m
 rho0                    <- params$rho0
-r0                      <- params$r0
 r                       <- params$r
 extreme_seq             <- params$extreme_seq
 time_effect             <- params$time_effect
@@ -67,7 +65,7 @@ The following choices were made:
 - The number of time periods will be $T = \boldsymbol{`r Ti`}$.
 - The number of measurements per cluster-period will be $m = \boldsymbol{`r m`}$.
 - The within-period intra-cluster correlation will be $\rho_0 = \boldsymbol{`r rho0`}$.
-- The autoregressive structure parameters will be $r_0 = \boldsymbol{`r r0`}$ and $r = \boldsymbol{`r r`}$.
+- The autoregressive structure parameter will be $r = \boldsymbol{`r r`}$.
 - Time effects will be modelled using __`r time_effect_text`__.
 - Sequences of all control/all intervention allocation __`r extreme_seq_text`__ be allowed.
 
