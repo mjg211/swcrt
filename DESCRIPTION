@@ -35,7 +35,7 @@ Description: Helps produce diagrams of stepped-wedge cluster randomised trial
    formats.
 License: MIT + file LICENSE
 LazyData: TRUE
-Date: 2020-09-10
+Date: 2022-04-28
 URL: https://mjg211.github.io/swcrt, https://github.com/mjg211/swcrt
 BugReports: https://github.com/mjg211/swcrt/issues
 RoxygenNote: 7.1.2
